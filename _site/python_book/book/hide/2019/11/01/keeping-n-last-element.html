@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link href="https://fonts.googleapis.com/css?family=Merriweather:300|Raleway:400,700" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style_vuggg.css">
+<title>1.3.Keeping the last N Items</title>
+<!-- Begin Jekyll SEO tag v2.1.0 -->
+<title>1.3.Keeping the last N Items - vuggg</title>
+<meta property="og:title" content="1.3.Keeping the last N Items" />
+<meta name="description" content="Giữ N phần tử cuối cùng" />
+<meta property="og:description" content="Giữ N phần tử cuối cùng" />
+<link rel="canonical" href="http://localhost:4000/python_book/book/hide/2019/11/01/keeping-n-last-element.html" />
+<meta property="og:url" content="http://localhost:4000/python_book/book/hide/2019/11/01/keeping-n-last-element.html" />
+<meta property="og:site_name" content="vuggg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-11-01T22:01:03+07:00" />
+<script type="application/ld+json">
+{"@context": "http://schema.org",
+"@type": "BlogPosting",
+"headline": "1.3.Keeping the last N Items",
+"datePublished": "2019-11-01T22:01:03+07:00",
+"description": "Giữ N phần tử cuối cùng",
+"url": "http://localhost:4000/python_book/book/hide/2019/11/01/keeping-n-last-element.html"}</script>
+<!-- End Jekyll SEO tag -->
+</head>
+<body>
+	<main class="container">
+		<section class="about">
+			
+			<a class="back-button" href="/">
+				<h4>Home</h4>
+			</a>
+            <p class="tagline"></p>
+            <p class="tagline">Python</p>
+            <p class="tagline">Cook Book</p>
+		</section>
+		<section class="content">
+			<section class="exercise-content">
+
+    <div class="exercise-heading">
+        1.3.Keeping the last N Items
+    </div>
+
+    <div class="exercise-content">
+
+        
+        <section id="exercise-container">
+            
+                    <h2>Giữ N phần tử cuối cùng</h2>
+
+<h3> Problem</h3>
+
+<p>Bạn muốn giữ lại lịch sử của giới hạn một số  phần tử  trong quá trình duyệt, huặc là một số tác vụ tương tự như vậy.</p>
+
+<h3> Solution</h3>
+
+<p>Lưu trữ một giới hạn một số phần tử là trường hợp tuyệt vời để sử dụng deque trong modules colections. Ví vụ sau đây thực hiện lưu lại lịch sử một vài phần tử trước đó trong quá trình duyệt, và yield dòng khớp với pattern mà ta đang cần tìm kiếm.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">deque</span>
+
+<span class="k">def</span> <span class="nf">search</span><span class="p">(</span><span class="n">lines</span><span class="p">,</span> <span class="n">pattern</span><span class="p">,</span> <span class="n">history</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+    <span class="n">previous_lines</span> <span class="o">=</span> <span class="n">deque</span><span class="p">(</span><span class="n">maxlen</span> <span class="o">=</span> <span class="n">history</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">pattern</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+            <span class="k">yield</span> <span class="n">line</span><span class="p">,</span> <span class="n">previous_lines</span>
+        <span class="n">previous_lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">'somefile.txt'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">line</span><span class="p">,</span> <span class="n">prevlines</span> <span class="ow">in</span> <span class="n">search</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="s">'python'</span><span class="p">,</span> <span class="mi">5</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">pline</span> <span class="ow">in</span> <span class="n">prevlines</span><span class="p">:</span>
+                <span class="k">print</span><span class="p">(</span><span class="n">pline</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">''</span><span class="p">)</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">''</span><span class="p">)</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">'-'</span><span class="o">*</span><span class="mi">20</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3>Discustion</h3>
+
+<p>Khi viết code để tìm kiếm trong các phần tử, nó là trường hợp phổ biến để sử dụng hàm generator, như đã thấy g giải pháp bên trên.</p>
+
+<p>Sử dụng deque(maxlen=N), tạo ra một queue với kích thước cố định. Khi mà phần tử mới được thêm vào, nếu queue đã đầy thì phần tử sau cùng sẽ tự động bị xóa.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">q</span> <span class="o">=</span> <span class="n">deque</span><span class="p">(</span><span class="n">maxlen</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">q</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">q</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">q</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">q</span>
+<span class="n">deque</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">maxlen</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">q</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">q</span>
+<span class="n">deque</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">maxlen</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">q</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">q</span>
+<span class="n">deque</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="n">maxlen</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+</code></pre></div></div>
+<p>Mặc dù bạn có thể thực hiện các phép toán trên với list, tuy nhiên với queue thì giải pháp là rất thanh lịch và tốc độ là nhanh hơn nhiều.</p>
+
+
+                    
+        </section>
+
+
+
+    </div>    
+
+</section>
+		</section>
+	</main></body>
+</html>

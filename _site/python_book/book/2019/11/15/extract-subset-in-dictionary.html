@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link href="https://fonts.googleapis.com/css?family=Merriweather:300|Raleway:400,700" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style_vuggg.css">
+<title>1.17 Extract subset in dictionary</title>
+<!-- Begin Jekyll SEO tag v2.1.0 -->
+<title>1.17 Extract subset in dictionary - vuggg</title>
+<meta property="og:title" content="1.17 Extract subset in dictionary" />
+<meta name="description" content="Problem" />
+<meta property="og:description" content="Problem" />
+<link rel="canonical" href="http://localhost:4000/python_book/book/2019/11/15/extract-subset-in-dictionary.html" />
+<meta property="og:url" content="http://localhost:4000/python_book/book/2019/11/15/extract-subset-in-dictionary.html" />
+<meta property="og:site_name" content="vuggg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-11-15T10:01:03+07:00" />
+<script type="application/ld+json">
+{"@context": "http://schema.org",
+"@type": "BlogPosting",
+"headline": "1.17 Extract subset in dictionary",
+"datePublished": "2019-11-15T10:01:03+07:00",
+"description": "Problem",
+"url": "http://localhost:4000/python_book/book/2019/11/15/extract-subset-in-dictionary.html"}</script>
+<!-- End Jekyll SEO tag -->
+</head>
+<body>
+	<main class="container">
+		<section class="about">
+			
+			<a class="back-button" href="/">
+				<h4>Home</h4>
+			</a>
+            <p class="tagline"></p>
+            <p class="tagline">Python</p>
+            <p class="tagline">Cook Book</p>
+		</section>
+		<section class="content">
+			<section class="exercise-content">
+
+    <div class="exercise-heading">
+        1.17 Extract subset in dictionary
+    </div>
+
+    <div class="exercise-content">
+
+        
+        <section id="exercise-container">
+            
+                    <h4>Problem </h4>
+
+<p>Bạn muốn tạo ra một tập con các thuộc tính trong một dictionary.</p>
+
+<h4>Solution</h4>
+
+<p>Việc này có thể dễ dàng thực hiện bằng cách sử dụng dictionary toàn diện như sau:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">prices</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'Omo'</span><span class="p">:</span><span class="mi">11</span><span class="p">,</span>
+    <span class="s">'Shiff'</span><span class="p">:</span><span class="mi">12</span><span class="p">,</span>
+    <span class="s">'Tired'</span><span class="p">:</span><span class="mi">98</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">p1</span> <span class="o">=</span> <span class="p">{</span><span class="n">key</span><span class="p">:</span><span class="n">value</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">prices</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">value</span> <span class="o">&gt;</span> <span class="mi">11</span><span class="p">}</span>
+ 
+<span class="k">print</span><span class="p">(</span><span class="n">p1</span><span class="p">)</span> <span class="c1"># {'Shiff': 12, 'Tired': 98}
+</span></code></pre></div></div>
+
+<h4>Dicussion</h4>
+
+<p>Rất nhiều vấn đề có thể giải quyết bằng cách sử dụng dictionary comprehension thì cũng có thể thực hiện với comprehension dictionary expression, ví dụ như ta cũng có thể  sử dụng tạo một chuỗi các tuple và truyền nó vào hàm khởi tạo <code class="highlighter-rouge">dict()</code> để tạo ra dictionary như sau:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">iterator_res</span> <span class="o">=</span> <span class="p">(</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span><span class="n">value</span><span class="p">)</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">prices</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">value</span> <span class="o">&gt;</span> <span class="mi">11</span><span class="p">)</span>
+
+<span class="n">p2</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">iterator_res</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">p2</span><span class="p">)</span> <span class="c1"># {'Shiff': 12, 'Tired': 98}
+</span>
+</code></pre></div></div>
+
+<p>Có  rất nhiều cách giải quyết cho một vấn đề, tuy nhiên qua quá trình kiểm tra thì cách đầu tiên vẫn cho tốc độ nhanh nhất.</p>
+
+                    
+        </section>
+
+
+
+    </div>    
+
+</section>
+		</section>
+	</main></body>
+</html>

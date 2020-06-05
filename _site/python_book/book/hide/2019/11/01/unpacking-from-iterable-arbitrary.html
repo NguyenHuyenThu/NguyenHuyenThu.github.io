@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link href="https://fonts.googleapis.com/css?family=Merriweather:300|Raleway:400,700" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style_vuggg.css">
+<title>1.2.Unpacking Elements from Iterables of Arbitrary Length</title>
+<!-- Begin Jekyll SEO tag v2.1.0 -->
+<title>1.2.Unpacking Elements from Iterables of Arbitrary Length - vuggg</title>
+<meta property="og:title" content="1.2.Unpacking Elements from Iterables of Arbitrary Length" />
+<meta name="description" content="Lấy N phần tử cho vào N biến từ một iterable với chiều dài bất kỳ" />
+<meta property="og:description" content="Lấy N phần tử cho vào N biến từ một iterable với chiều dài bất kỳ" />
+<link rel="canonical" href="http://localhost:4000/python_book/book/hide/2019/11/01/unpacking-from-iterable-arbitrary.html" />
+<meta property="og:url" content="http://localhost:4000/python_book/book/hide/2019/11/01/unpacking-from-iterable-arbitrary.html" />
+<meta property="og:site_name" content="vuggg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-11-01T22:01:03+07:00" />
+<script type="application/ld+json">
+{"@context": "http://schema.org",
+"@type": "BlogPosting",
+"headline": "1.2.Unpacking Elements from Iterables of Arbitrary Length",
+"datePublished": "2019-11-01T22:01:03+07:00",
+"description": "Lấy N phần tử cho vào N biến từ một iterable với chiều dài bất kỳ",
+"url": "http://localhost:4000/python_book/book/hide/2019/11/01/unpacking-from-iterable-arbitrary.html"}</script>
+<!-- End Jekyll SEO tag -->
+</head>
+<body>
+	<main class="container">
+		<section class="about">
+			
+			<a class="back-button" href="/">
+				<h4>Home</h4>
+			</a>
+            <p class="tagline"></p>
+            <p class="tagline">Python</p>
+            <p class="tagline">Cook Book</p>
+		</section>
+		<section class="content">
+			<section class="exercise-content">
+
+    <div class="exercise-heading">
+        1.2.Unpacking Elements from Iterables of Arbitrary Length
+    </div>
+
+    <div class="exercise-content">
+
+        
+        <section id="exercise-container">
+            
+                    <h3>Lấy N phần tử cho vào N biến từ một iterable với chiều dài bất kỳ</h3>
+
+<h4>Problem</h4>
+<p>Bạn cần lấy N phần tử từ một iterable, nhưng có thể iterable có nhiều hơn N phần tử.</p>
+
+<h4>Solution</h4>
+
+<p>Python “star expressions” có thể được sử dụng để  giải quyết vấn đề  này. Lấy ví dụ, giải sử bạn đang dạy một khóa học, đến cuối kỳ bạn quyết định bỏ qua điểm số của bài tập về nhà đầu tiên và cuối cùng. Bạn chỉ muốn lấy trung bình của những điểm số còn lại. Nếu số lượng bài tập có 4 hay 5 bài thì bạn có thể  unpack chúng ra 4 hay 5 biến, nhưng nếu nó có 24 bài thì sao? “star expression” là giải pháp.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">drop_first_last</span><span class="p">(</span><span class="n">grades</span><span class="p">):</span>
+    <span class="n">first</span><span class="p">,</span> <span class="o">*</span><span class="n">therest</span><span class="p">,</span> <span class="n">last</span> <span class="o">=</span> <span class="n">grades</span>
+    <span class="k">return</span> <span class="n">avg</span><span class="p">(</span><span class="n">therest</span><span class="p">)</span>
+</code></pre></div></div>
+
+                    
+        </section>
+
+
+
+    </div>    
+
+</section>
+		</section>
+	</main></body>
+</html>

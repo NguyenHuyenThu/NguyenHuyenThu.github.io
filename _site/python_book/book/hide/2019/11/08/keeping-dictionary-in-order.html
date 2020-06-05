@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link href="https://fonts.googleapis.com/css?family=Merriweather:300|Raleway:400,700" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style_vuggg.css">
+<title>1.7 Keeping dictionary in orders</title>
+<!-- Begin Jekyll SEO tag v2.1.0 -->
+<title>1.7 Keeping dictionary in orders - vuggg</title>
+<meta property="og:title" content="1.7 Keeping dictionary in orders" />
+<meta name="description" content="Problem" />
+<meta property="og:description" content="Problem" />
+<link rel="canonical" href="http://localhost:4000/python_book/book/hide/2019/11/08/keeping-dictionary-in-order.html" />
+<meta property="og:url" content="http://localhost:4000/python_book/book/hide/2019/11/08/keeping-dictionary-in-order.html" />
+<meta property="og:site_name" content="vuggg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-11-08T14:01:03+07:00" />
+<script type="application/ld+json">
+{"@context": "http://schema.org",
+"@type": "BlogPosting",
+"headline": "1.7 Keeping dictionary in orders",
+"datePublished": "2019-11-08T14:01:03+07:00",
+"description": "Problem",
+"url": "http://localhost:4000/python_book/book/hide/2019/11/08/keeping-dictionary-in-order.html"}</script>
+<!-- End Jekyll SEO tag -->
+</head>
+<body>
+	<main class="container">
+		<section class="about">
+			
+			<a class="back-button" href="/">
+				<h4>Home</h4>
+			</a>
+            <p class="tagline"></p>
+            <p class="tagline">Python</p>
+            <p class="tagline">Cook Book</p>
+		</section>
+		<section class="content">
+			<section class="exercise-content">
+
+    <div class="exercise-heading">
+        1.7 Keeping dictionary in orders
+    </div>
+
+    <div class="exercise-content">
+
+        
+        <section id="exercise-container">
+            
+                    <h4>Problem</h4>
+
+<p>Bạn muốn tạo một dictionary mà đồng thời bạn có thể quản lý được thứ tự các phần tử khi mà duyệt huặc serializing.</p>
+
+<h4>Solution</h4>
+
+<p>Để quản lý thứ tự các phần tử trong dictionary, bạn cần sử dụng OrderedDict từ module collection. Nó giữ nguyên được thứ tự các phần tử khi mà chúng được chèn vào. Ví dụ sau</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span>
+
+<span class="n">d</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">()</span>
+
+<span class="n">d</span><span class="p">[</span><span class="s">'a'</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">d</span><span class="p">[</span><span class="s">'v'</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
+
+
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">d</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">d</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+
+</code></pre></div></div>
+
+<p>OrderedDict đặc biệt hữu dụng khi mà bạn muốn xây dựng một mapping, nếu trong trường hợp bạn muốn serialize huặc mã hóa sang định dạng khác sau này. Lấy ví dụ nếu bạn muốn thứ tự quản lý thư tự xuất hiện của các trường xuất hiện trong file json thì một giải pháp là bạn tạo một OrderedDict, rồi sau đó convert sang json.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">json</span>
+<span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="c1">#'{"foo": 1, "bar": 2, "spam": 3, "grok": 4}'
+</span></code></pre></div></div>
+
+<h4>Discustion</h4>
+
+<p>Bên trong OrderedDict duy trì một double linked list. Thứ tự của các key được gi nhận sau khi chèn. Khi mà một phần tử mới được chèn vào, mà nó lại là phần tử đầu tiên thì nó sẽ được đặt vào cuối của linked list. Sau đó, nếu có chèn một key đã tồn tại vào thì thứ tự vẫn không thay đổi.</p>
+
+<p>Nhận thấy rằng kích thước của một OrderedDict là gâp đôi so với một dictionary bình thường. Bởi vì nó có thêm một linked list để lưu thứ tự của các key. Do vậy khi làm việc với lượng dữ liệu lớn thì bạn nên cân nhắc kỹ lợi ích của Orderđict để quyết định xem có nên sử dùng Orderdict hay không.</p>
+
+                    
+        </section>
+
+
+
+    </div>    
+
+</section>
+		</section>
+	</main></body>
+</html>

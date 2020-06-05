@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+	
+<head>
+	{%- include head.html -%}
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-164637932-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-164637932-1');
+</script>
+
+</head>
+<body>
+	<main class="container">
+		<section class="about">
+			<a href="/">
+				<img src="{{ "/assets/phung.jpg" | relative_url }}" alt="{{ site.plainwhite.name }}">
+				<h2>{{ site.plainwhite.name }}</h2>
+			</a>
+			<p class="tagline">{{ site.plainwhite.tagline }}</p>
+			<ul class="social">
+				<a class="item-social" href="https://github.com/{{ site.plainwhite.social_links.github }}"><li><i class="icon-github-circled"></i></li></a>
+				<a class="item-social" href="https://facebook.com/pxv1702"><li><i>{%- include /icon/facebook.svg -%}</i></li></a>
+			</ul>
+			
+			<div class="break-line"></div>
+
+			<section class="link-resource">
+				<a class="link-resource item" href="/courses.html">
+					Courses studied
+				</a>
+				
+				<a class="link-resource item" href="/xam.html">
+					Xam'
+				</a>
+				
+			</section>
+			<p>&copy; 2019</p>
+		</section>
+		<section class="content">
+			{{ content }}
+		</section>
+	</main>
+	{%- if site.plainwhite.analytics_id -%}
+	<script async src="https://www.googletagmanager.com/gtag/js?id={{ site.plainwhite.analytics_id }}"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', '{{ site.plainwhite.analytics_id }}');
+	</script>
+	{%- endif -%}
+</body>
+</html>

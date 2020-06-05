@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link href="https://fonts.googleapis.com/css?family=Merriweather:300|Raleway:400,700" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style_vuggg.css">
+<title>The BerkeleyDB</title>
+<!-- Begin Jekyll SEO tag v2.1.0 -->
+<title>The BerkeleyDB - vuggg</title>
+<meta property="og:title" content="The BerkeleyDB" />
+<meta name="description" content="Table of content Data access" />
+<meta property="og:description" content="Table of content Data access" />
+<link rel="canonical" href="http://localhost:4000/home/berkeleydb/2019/11/10/berkeleydb.html" />
+<meta property="og:url" content="http://localhost:4000/home/berkeleydb/2019/11/10/berkeleydb.html" />
+<meta property="og:site_name" content="vuggg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-11-10T20:01:03+07:00" />
+<script type="application/ld+json">
+{"@context": "http://schema.org",
+"@type": "BlogPosting",
+"headline": "The BerkeleyDB",
+"datePublished": "2019-11-10T20:01:03+07:00",
+"description": "Table of content Data access",
+"url": "http://localhost:4000/home/berkeleydb/2019/11/10/berkeleydb.html"}</script>
+<!-- End Jekyll SEO tag -->
+</head>
+<body>
+	<main class="container">
+		<section class="about">
+			
+			<a class="back-button" href="/">
+				<h4>Home</h4>
+			</a>
+            <p class="tagline"></p>
+            <p class="tagline">Document</p>
+
+		</section>
+		<section class="content">
+			<section class="exercise-content">
+
+    <div class="exercise-heading">
+        The BerkeleyDB
+    </div>
+
+    <div class="exercise-content">
+
+        
+        <section id="exercise-container">
+            
+                    <h1>Table of content</h1>
+<a href="#data-access">Data access</a>
+<br><br>
+
+<h1>Chương 1: Tổng quan về  các hệ thống cơ sở dữ liệu</h1>
+<p><br /></p>
+<h2>Giới thiệu về quản lý dữ liệu</h2>
+
+<p>Quản lý dữ liệu có thể ở mức rất đơn giản, ví dụ như ta cấu hình đê luư dữ liệu ra file text, đôi khi như vậy là đủ. Huặc phổ biến hơn thì chúng ta cần lưu trữ và tìm kiếm một lượng lớn dữ liệu, huặc những cấu trúc dữ liệu phức tạp. Hệ quản trị cơ sở dữ liệu (HQTCSDL) là công cụ giúp lập trình viên thực hiện công việc đó một cách nhanh tróng và hiệu quả.</p>
+
+<p>Đương nhiên, các hệ quản trị cơ sở dữ liệu thì đã có từ lâu. Lưu trữ dữ liệu là vấn đề  được phát sinh từ những ngày đầu của khoa học máy tính. Các nhà phát triển phầm mềm có thể lựa chọn từ hàng trăm các HQTCSDL khác nhau, các HQTCSDL miễn phí và thương mại đều có sẵn. Tuy nhiên vấn đề làm sao để lựa chọn một phù hợp nhất để giải quyết bài toán họ gặp phải là một vấn đề lớn.</p>
+
+<h2>Cách chọn cơ sở dữ liệu</h2>
+
+<p>Bước đầu tiên trong việc chọn một HQTCSDL là tìm ra những lựa chọn. Sau nhiều thập kỷ phát triển của Computer Science, đã sinh ra vô số các hệ thống cơ sở dữ liệu.</p>
+
+<p>Chúng ta có thể liệu kê các nhóm hệ thống tiêu biểu như “network”, “relational”, “object-oriented” và “embedded”. Và một số hệ thống lai như “object-relational”, “embedded network” etc. Mỗi một nhóm hệ thống lại có một định hướng mục địch riêng, có nhưng ưu và nhược điểm riêng. Hiểu rõ điều này là quan trọng để chọn được một HQTCSDL phù hợp với mỗi bài toán.</p>
+
+<h3 id="data-access">Data access and management</h3>
+
+<p>Về cơ bản thì một hệ thống sơ sở dữ liệu sẽ cung cấp hai dịch vụ chính.</p>
+
+<p>Đầu tiên, là dịch vụ truy cập dữ liệu. Truy cập dữ liệu có nghĩa là thêm, sửa, xóa, tìm kiếm, những dữ liệu đã được lưu trữ. Tất cả các hệ thống sở sở dữ liệu đều cung cấp nhựng dịch vụ này, tuy nhiên cách chúng hoạt động thì còn tùy thuộc vào loại hệ thống sở sở dữ liệu và trùy thuộc vào cấu trúc của các bản gi.</p>
+
+<p>Dịch vụ thứ hai là quản lý dữ liêu. Quản lý dữ liệu thì thường phức tạp hơn truy cập dữ liêu. Cung cấp  các dịch vụ quản lý dữ liệu tốt là một phần khó trong việc xây dựng các hệ thống sở sỡ dữ liêu. Khi chọn lựa các hệ thống cơ sở dữ liệu sử dụng trong ứng dụng mà bạn xây dựng, hãy đảm bảo rằng nó hỗ trợ các dịch vụ quản lý dữ liệu bạn cận là rất quan trọng.</p>
+
+<p>Dịch vụ quản lý dữ liệu bao gồm cả việc cho phép nhiều người dùng đồng thời cùng làm việc trên cơ sở dữ, cho phéo nhiều bản gi thay đổi một cách tức thời (transaction), và đảm bảo dữ liệu được an toàn khi sảy ra sự cố. Các hệ thống cơ sở dữ liệu khác nhau thì sẽ có các dịch vụ quản lý dữ liệu khác nhau. Dịch vụ quản lý dữ liệu hoàn toàn độc lập với các dịch vụ truy cập dữ liệu nhưng đã đề cập ở đoạn trên. Lấy ví dụ là không có bất kỳ lý thuyết nào của hệ thống cơ sở dữ liệu quản hệ yêu cầu hệ thống phải hỗ trợ transaction, tuy nhiên hầu hết các hế thống sơ sở dữ liệu quản hệ thương mại đều hỗ trợ transaction.</p>
+
+<p>Đồng thời có nghĩa rằng nhiều người dùng có thực thi trên cơ sở dữ liệu tại cùng thời điểm.</p>
+
+<p>Transaction cho phép nhiều người dùng thực hiện các thay đổi trên cơ sở dữ liệu tại một lần thực thi. Ví dụ như khi ta chuyển tiền giữa các tài khoản ngân hàng, chúng ta cần transaction để đảm bảo rằng số dư trong một tài khoản bị giảm và tài khoảng kia số dư tăng lên. Khi không có transaction, giả sử nếu số dư của một tài khoản giảm trước khi tài khoản kia được tăng lên, một sự cố làm cho hệ thống bị crash, và việc tăng số dư không thành công, điều này là rất nghiêm trọng. Rõ ràng trong trường hợp này thì tốt nhất là cả thực thi nên được thực hiện tại cùng một thời điểm.</p>
+
+<p>…</p>
+
+<p>Quyết định chọn loại hệ thông cơ sở dữ liệu nào có nghĩa là hiểu được cách mà thống cung cấp các dịch vụ truy cập dữ liệu và quản lý dữ liệu, cái mà ứng dụng của bạn cần. BerkeleyDB là một hệ thống cơ sở dữ liệu nhúng, nó cung cấp các dịch vụ truy cập dữ liệu khá đơn giản và một tập các dịch vụ quản lý dữ liệu đồ sộ. Để  làm rõ những điểm mạnh và yếu của nó thì ta cần so sánh với các loại hệ thống sở dữ liệu khác.</p>
+
+<h4>Cơ sở dữ liệu quan hệ</h4>
+
+<p>Cơ sở dữ liệu quan hệ (CSDLQH) có thể coi là một biến thể thành công nhất của các hệ thống cơ sở dữ liệu. Bở vì nó là thành công của rất nhiều công ty như là Oracle. CSDLQH dự trên trên lý thuyết về toán tổ hợp. Khái niệm “relation” tương đương với “tập” trong toán học. Một quan hệ là một tập hợp các bản gi, hay còn gọi là table trong các HQTCSDL. Ý tưởng của hệ thống CSDLQH là tách các lập trình viên ra khỏi việc tổ trức vật lý của cơ sở dữ liệu. Thay vì làm việc với mảng huặc là con trỏ để  lấy dữ liệu thì lập trình viên tạo ra những câu lệnh truy vấn đến table trên các ngôn ngữ lập trình bậc cao và hệ thống sẽ thực thi những câu lệnh đó.</p>
+
+<p>CSDLQH thực thi các phép toán trên bộ, bản gi. Sự thực thi đó tìm kiếm các bản gi thỏa mãn một số tiêu chi nào đó, thay đổi bản gì, xóa bản gi etc.</p>
+
+<p>Hâu như tất cả các CSDLQH đều sử dụng Structure Query Language, hay còn gọi là SQL. Ngôn ngữ này cho phép con người và máy tính làm việc với Database bằng cách viết ra những câu lệnh.</p>
+
+<h4>Object-oriended databases</h4>
+<h4>Network databases</h4>
+<h4>Server and client</h4>
+
+<h1>Chương 2: Khi nào sử dụng BerkeleyDB</h1>
+<p><br /><br /></p>
+<h2>Berkeley DB là gì?</h2>
+
+<p>Cho đến hiện tai thì chúng ta mới chỉ nói về các khái niệm chung của cơ sở dữ liệu. Đây là thời điểm nói về BerkeleyDB, và xem ưng dụng nào thì phù hợp với BerkeleyDB.</p>
+
+<p>Berkeley là một thư viện OpenSource embedded database, nó cung cấp khả năng mởi rộng, hiệu xuất cao và dịch vụ quản lý dữ liệu transaction-protected cho ứng dụng. BerkeleyDB cung cấp các hàm API đơn giản cho việc truy cập và quản lý dữ liệu.</p>
+
+<p>BerkeleyDB là “embedded” bởi vì nó được liêt kết trực tiếp vào ứng dụng. Nó chạy cùng với dải không giản địa chỉ nhớ với ứng dụng. Vì vậy, sẽ không cần yêu cầu có inter-process commnunication huặc là các kết nối qua mạng huặc giữa các tiến trình với nhauu trên cùng một thiết bị để có thể thực thi với cơ sở dữ liệu.</p>
+
+<p>BerkekeyDB cung cấp những gọi hàm API đơn giản cho một số ngôn ngữ lập trình, bao gồm: Java, C++, C, Perl, Python, PHP. Tất cả sự thực thi cơ sở dữ liệu đều năm trong thư viện. Đa tiếng trình, đa luồng trong một tiến trình đơn. Tất cả có thể sử dụng cơ sở dữ liệu cùng lúc bởi vĩ mỗi người dùng sử dụng một thư viện BerkeleyDB. Các dịch vụ ở mức level thấp như logging, transaction, share buffer management, memony management và tương tự như vậy sẽ đều được xử lý bởi thư viện.</p>
+
+<p>BerkeleyDB là vô cùng di động, nó có thể chạy trên hầu hế  trên Unix và các biến thể của Linux, windows và một số các đề điều hành nhúng thời gian thực. Nó có thể chạy trên cả 32bit và 64bit.</p>
+
+<p>BerkeleyDB có khả năng mở rộng lớn. Bản thân thư viện rất gọn nhẹ (dưới 300kilobytes), nhưng nó có thể quản lý dữ liệu lên đến 256TB. Nó đủ nhỏ để chạy trên các hệ thống nhúng bị nhiều giới hạn về phần cứng.</p>
+
+<p>BerkeleyDB nhìn chung là vượt trội so với cơ sở dữ liệu quan hệ hay hướng đôi tượng trên các hệ thống nhúng, bởi một vài lý do. Đầu tiên nó chạy trên cùng một dải địa chỉ nhớ với ứng dụng, sẽ không yêu cầu các inter-process communication để thực thi trên cơ sở dữ liệu. Thứ hai vì berkelyDB sử dụng các lời gọi hàm API để thực thi trên cơ sở liệu nên không cần phân tích cú pháp, không cần lập kế  hoạch thực thi etc.</p>
+
+<h4>Dịch vụ truy vấn dữ liệu</h4>
+
+<p>Ứng dụng sử dụng BerkeleyDB có thể chọn cấu trúc lữu trữ dữ liệu phù hợp với ứng dụng. BerkeleyDB hỗ trợ các cấu trúc dữ liệu như: BTree, Hashtable, Persistent queues, reqcord-number-based storage. Lập trình viên có thể tạo các bảng sử dụng bấy kỳ cấu trúc nào, huặc có thể kết hớp chúng lại.</p>
+
+<p>…</p>
+
+<h4>Dịch vụ quản lý dữ liệu</h4>
+
+<p>BerkeleyDB cung cấp các dịch vụ quản lý dữ liệu quan trọng, bao gồm concurrency, trasaction, recovery. Các dịch vụ này thì đểu hoạt động trên tất cả các cấu trúc lưu trữ.</p>
+
+<p>Todo</p>
+
+<h2>Ứng dụng nào cần BekerleyDB?</h2>
+
+<p>BerkeleyDB rất phù hợp cho các ứng dụng cần tốc độ nhanh, có khả năng mở rộng, và quản lý cơ cở dư liệu nhúng đáng tin cậy. Nếu ứng dụng cần các dịch vụ khác như đã nếu thì đây có lẽ là một lựa chọn tồi.</p>
+
+<p>Đầu tiên, bạn có cần truy cập thông tin theo cách mà bạn không thể đoán trước? Nếu người dụng của bạn muốn có khả năng nhập quy vấn SQL để thực thi các tìm kiếm phức tạp thì bạn nên lựa chọn một cơ sở dữ liệu quan hệ thay vì BerkeleyDB. BerkeleyDB yêu cầu lập trình viên viết code để chạy một loại truy vấn mới.</p>
+
+<p>Ngược lại, nếu bạn có để dự đoán được khuôn mẫu mà bạn truy cập dữ liệu ngay từ đâu. Và nếu bạn cần những tìm kiếm key-value tương đối đơn giản thì BerkeleyDB là một lựa chọn tốt. Các truy được code một lần và sau đó chạy rất nhanh, vì không cần phải phân tích cú phát, tối ưu hóa truy vấn etc.</p>
+
+<p>Thứ hai, liệu có lợi ích nào về mặt kĩ thuật thi sử dùng cơ sở dữ liệu nhúng? Nếu bạn đang xây dựng một ứng dụng mà nó sẽ chạy không giám sát trong thời gian dài, huặc cho người dùng cuối không có nhu cầu trao đổi dữ liệu với bên ngoài, khi đó với một server riêng là không cần thiết. Và đương nhiên BerkeleyDB là một lựa chọn tốt.</p>
+
+<p>Và câu hỏi cơ bản là, làm sao để xác định được mối quan hệ chặt chẽ giữa yêu cầu của phần mềm với thiết kế của BerkeleyDB. BerkeleyDB được thiết kế và xây dựng để cung cấp một hệ thống tốc độ cao, đáng tin cậy, với các trasaction-protect record storage. Bản thân thư viện không có dự định sẽ cung cấp các hỗ trợ tương tác truy vấn để giữa cho thư viện nhỏ và đơn giản.</p>
+
+<h2>Bản gi và yêu cầu bản gi trong BerkeleyDB</h2>
+
+<p>BerkeleyDB không bao giờ thi hành trên phần giá trị của bản gi, giạ trị của các bản gi chỉ là thông số định kèm với key, và nó chỉ thực sự được giao đến ứng dụng khi có nhu cầu. Cả key và value có thể là byte string tùy ý, huặc là có chiều dài cố định huặc là có chiều dài là một biến. Như vậy thì lập trình viên có thể dùng các cấu trúc dữ liệu của ngôn ngữ lập trình vào cơ sở dữ liệu mà không cần bất kỳ sự chuyển đổi nào. Lưu trữ và lấy dữ liệu đều rất đơn giản. Nhưng ứng dụng phải biết được cấu trúc dữ liệu của key và value trước, nó không thể hỏi BerkeleyDB được, vì BerkeleyDB không biết. Đó là một tính năng quan trọng của hệ thống sơ sở dữ liệu này và hãy cân nhắc kỹ điều này. Nói cách BerkeleyDB không thể cung cấp bất kỳ khái niệm nào về cấu trúc dữ liệu mà nó lưu trữ. Ứng dụng phải hiểu được cấu trúc dữ liệu của key và value khi nó sử dụng. Nói cách khác sẽ không có bất kỳ giới hạn nào về cấu trúc dữ liệu mà BerkeleyDB có thể lưu trữ. BerkeleyDB có thể thực thi lên bất kỳ cấu trúc dữ liệu nào mà ứng dụng sử dụng, không có vấn đề gì về việc nó phức tạp như thế nào. Bởi vì cả key và value có thể có chiều dài lên đến cả Gigabyte. Một bản gi đơn có thể lưu trữ hình ảnh, video huặc là các dữ liệu có kích thước lớn khác. Hình dưới đây là so sánh cấu trúc bản gì theo cột trong Relation Model và Key-value trong BerkeleyDB.</p>
+
+<p><img src="https://i.imgur.com/x7BR6gk.png" alt="img1" /></p>
+
+<h2>Kiến trúc của BerkeyleyDB</h2>
+
+<ul>
+  <li><strong>Access methods</strong>: Là các phương thức tạo, sửa, xóa dữ liệu trên bảng trong cơ sở dữ liệu.</li>
+  <li><strong>Memory pool</strong>: Mục đích của hệ thống con này là chia sẻ bộ nhớ đệm với cho các tiến trình sử dụng trong ứng dụng.</li>
+  <li><strong>Transaction</strong>: Hệ thống này cho phép một nhóm cơ sở dũ liệu thay đổi, các phép toán trong nhóm huặc là tất cả thành công huặc là tất cả cùng thất bại.</li>
+  <li><strong>Locking</strong>: Nó là một cơ chế giúp cho các truy cập đồng thời tới một bản gi được tách biệt với nhau, không gây cản trở nhau.</li>
+  <li><strong>Logging</strong>: Là chơ chế gi lại bất kỳ thay đổi nào tron cơ sở dữ liệu trước khi nó thực được sự thay đổi bên trong cơ sở dữ liệu.</li>
+</ul>
+
+<p>Một tính năng độc đáo của BerkeleyDB là tất cả các hệ thống con bên tron BerkeleyDb, ngoại trừ hệ thống Acccess Methos và Logging thì đều có thể hoạt đọng một cách độc lập cùng với ứng dụng.</p>
+
+<p><br /></p>
+<h1>Chương 3: Cài đặt và chạy trương trình đầu tiên</h1>
+<p><br /></p>
+
+<h2>3.1 BerkeleyDB chạy trên môi trường nào?</h2>
+
+<p>Todo</p>
+<h4>3.1.1 Hướng dẫn cài đặt BerkeleyDb trên môi trường linux</h4>
+
+<p>Bản phân phối BerkeleyDB xây dựng bốn thư viện riêng tạch biệt là:  thư viện Berkeley DB C API và tùy chọn các thư viện của ngôn ngữ C++, Java, và Tcl API.</p>
+
+<p>Để build BerkeleyDB trên linux ta tải thư viện trên trang của Oracle tại:</p>
+
+<p><strong>Link</strong>: <code class="highlighter-rouge">https://www.oracle.com/database/technologies/related/berkeleydb-downloads.html</code></p>
+
+<p><strong>Cài đặt:</strong></p>
+
+<ol>
+  <li>Giải nén</li>
+  <li>Vào thư mục <strong>build_unix</strong>, nhấn chuột phải và chọn <strong>Open in terminal</strong>.</li>
+  <li>Gõ lần lượt các lệnh sau:
+    <ol>
+      <li><code class="highlighter-rouge">../dist/configure</code></li>
+      <li><code class="highlighter-rouge">make</code></li>
+      <li><code class="highlighter-rouge">sudo make install</code></li>
+    </ol>
+  </li>
+</ol>
+
+<p>Quá trình cài đặt hoàn tất.</p>
+
+<h4>3.1.2 Cấu hình BerkeleyDB</h4>
+
+<p>Có một vài đối số bạn cần chỉ định khi cấu hình BerkeleyDB. Ở đây chỉ giới thiệu một số đối số tiêu biểu, đẻ xem đầy đủ bạn nhập cờ <code class="highlighter-rouge">--help</code>.</p>
+
+<ol>
+  <li>
+    <p><strong><code class="highlighter-rouge">--disable-largefile</code></strong>: Một vài hệ thống, đặc biệt là các phiên bản của HP/UX và Solaris yêu cầu các tùy chọn đặt biệt theo thứ tự để tạo các file lớn hơn 2^32 bytes. Option này sẽ tự động được bật khi compiled BerkeleyDB, vì lý do này nên phiên bản hiện tại có thể không chạy trên các hệ thống như vậy.</p>
+  </li>
+  <li>
+    <p><strong>–enable-cxx</strong>: Để build BerkeleyDB C++ API, hay nhập đối số này khi cấu hình.</p>
+  </li>
+</ol>
+
+<h2>3.2 Chương trình đầu tiên</h2>
+
+<h3>3.2.1 Tạo Database</h3>
+
+<p>Trong BerkeyleyDB thay vì chúng ta Create Database như trong SQL mà chúng ta tạo môi trường mà chúng ta đặt dữ liệu của ứng dụng.</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">DB_ENV</span><span class="o">*</span> <span class="n">dbenv</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="n">ret</span><span class="p">;</span>
+
+<span class="c1">// tạo môi trường</span>
+<span class="n">DB_ASSERT</span><span class="p">(</span><span class="n">db_env_create</span><span class="p">(</span><span class="o">&amp;</span><span class="n">dbenv</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+
+<span class="c1">// Cấu hình môi trường tại đây, nếu cần thiết</span>
+<span class="c1">//</span>
+
+<span class="c1">// Mở môi trường</span>
+<span class="n">DB_ASSERT</span><span class="p">(</span><span class="n">dvenv</span><span class="o">-&gt;</span><span class="n">open</span><span class="p">(),</span><span class="s">"mydatabase"</span><span class="p">,</span> <span class="n">DB_CREATE</span><span class="p">),</span> <span class="mo">0644</span><span class="p">;</span> 
+</code></pre></div></div>
+
+<h3>3.2.2 Tạo table</h3>
+
+<p>Trong BerkeleyDB bảng được xử lý bởi con trỏ <code class="highlighter-rouge">DB* </code>. Với mỗi bảng trong một ứng dụng, thông thường mở một handle và sau đó sử dụng handle đó trong một luồn huặc nhiều luồng.</p>
+
+<p>Tạo một bảng Employee, BerkeleyDB sẽ chỉ quan tâm đến khóa chính, không quan tấm đến các trường khác của trong cơ sở dữ liêu. Đâu tiên, handle databse được tạo, và nó đại diện cho bảng.</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">DB</span><span class="o">*</span> <span class="n">dbp</span><span class="p">;</span>
+<span class="n">DB_ENV</span><span class="o">*</span> <span class="n">dbenv</span><span class="p">;</span>
+
+<span class="n">db_create</span><span class="p">(</span><span class="o">&amp;</span><span class="n">dbp</span><span class="p">,</span> <span class="n">dbenv</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+
+<span class="n">dbp</span><span class="o">-&gt;</span><span class="n">open</span><span class="p">(</span><span class="n">dbp</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="s">"employee.db"</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="n">DB_BTREE</span><span class="p">,</span> <span class="n">DB_CREATE</span><span class="p">,</span> <span class="mo">0644</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>Chúng ta vừa tạo một bảng sử dụng cấu trúc dữ liệu B-tree như là cấu trúc chỉ mục chính. Và sẽ được lưu ở thư mục <code class="highlighter-rouge">mydatabase</code> với tên là employee.db. File đó sẽ bao gồm một bảng duy nhất, quyền hạn của người dùng đối với file được chỉ định bởi tham số cuối cùng, <code class="highlighter-rouge">0644</code> như ở trên.</p>
+
+<h3>3.2.3 Liên kết Table với Dữ liệu</h3>
+
+<p>Hay xem xét điêu gì sẽ sảy ra nếu chúng ta muốn một chỉ mục chính là employee id và một chỉ mục thứ cấp là lastname. Trong SQL chúng ta phải sử dụng <code class="highlighter-rouge">Create index lastname on employee(last_name)</code>.</p>
+
+<p>Trong BerkeleyDB, chỉ mục thứ cấp trống giống như Table. Giả sử chúng ta sử dụng một số nguyên để chứa giá trị của các tuple trong bảng Employee. Cấu trúc có thể như sau:</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">typedef</span> <span class="kt">int</span> <span class="n">emp_data</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Và ta sử dụng một số nguyên làm ID cho employee, định nghĩa nó như sau:</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">type</span> <span class="n">def</span> <span class="kt">int</span> <span class="n">emp_key</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Trong BerkeleyDB, khi xử lý với key huặc phần tử dữ liệu chúng ta có thể sử dụng một cấu trúc được gọi là <strong>DBT</strong>, nó đóng gói byte-string, biểu diễn nó như một con trỏ và đi kèm với kích thước của nó. Con trỏ sẽ được thao chiếu bở trường dữ liệu của DBT, và kích thước được lưu trữ trong trường size của DBT. Nếu chúng ta muốn xử lý một cặp key/value đại diện cho một employee, chúng ta nên sử dụng DBT cho emp_key và một DBT khác cho emp_data.</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">DBT</span> <span class="n">key_data</span><span class="p">;</span>
+<span class="n">DBT</span> <span class="n">value_data</span><span class="p">;</span>
+
+<span class="n">emp_data</span> <span class="n">student_key</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="n">emp_key</span> <span class="n">student_value</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+
+<span class="n">key_data</span><span class="p">.</span><span class="n">data</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">student_key</span><span class="p">;</span>
+<span class="n">key_data</span><span class="p">.</span><span class="n">size</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">student_key</span><span class="p">);</span>
+
+<span class="n">value_data</span><span class="p">.</span><span class="n">data</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">student_value</span><span class="p">;</span>
+<span class="n">value_data</span><span class="p">.</span><span class="n">size</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">student_value</span><span class="p">);</span>
+
+
+</code></pre></div></div>
+
+<h3>3.2.4 Chèn dữ liệu vào cơ sở dữ liệu</h3>
+
+<p>Sau khi chúng ta liên kết dữ dữ liệu ở phần trên thì chúng ta có thể thực hiện chèn dữ liệu vào cơ sở dữ liệu.</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// put dữ liệu vào cơ sở dữ liệu</span>
+<span class="n">dbp</span><span class="o">-&gt;</span><span class="n">put</span><span class="p">(</span><span class="n">dbp</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">key_data</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">value_data</span><span class="p">,</span> <span class="n">DB_AUTO_COMMIT</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h3>3.2.5 Cập nhật dữ liệu trên table</h3>
+
+<p>Dữ liệu có thể được cập nhật nếu chúng ta biết chính xác chuỗi byte của key của dữ liệu đang tìm kiếm, và sử dụng câu lệnh replace để cập nhật chúng. Theo thứ tự những việc cần để cập nhật dữ liệu, trước tiên chúng ta cần nói về cursor.</p>
+
+<p>Một cursor đại diện cho một ví trị ở trong bảng, nó cho phép chúng ta duyệt trên mảng và duy trì một liên hệ với phần tử hiện tại, và bạn có thể thao tác với nó.</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">DBC</span><span class="o">*</span> <span class="n">dbc</span><span class="p">;</span>
+<span class="n">DB</span><span class="o">*</span> <span class="n">dbp</span><span class="p">;</span>
+
+<span class="n">dbp</span><span class="o">-&gt;</span><span class="n">cursor</span><span class="p">(</span><span class="n">dbp</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">)))</span>
+</code></pre></div></div>
+
+<h3>3.2.6 Lấy dữ liệu từ bảng</h3>
+
+<h3>Chương trình ví dụ</h3>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;iostream&gt;
+#include &lt;string.h&gt;
+#include &lt;db_cxx.h&gt;
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
+<span class="p">{</span>
+    <span class="n">Db</span> <span class="n">db</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span> <span class="c1">// Khởi tạo đối tượng DB</span>
+
+    <span class="n">u_int32_t</span> <span class="n">oFlags</span> <span class="o">=</span> <span class="n">DB_CREATE</span><span class="p">;</span> <span class="c1">// Open flags;</span>
+    <span class="k">try</span> <span class="p">{</span>
+        <span class="c1">// Mở cơ sở dữ liệu</span>
+        <span class="n">db</span><span class="p">.</span><span class="n">open</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span> <span class="c1">// Con trỏ trasaction</span>
+        <span class="s">"my_db.db"</span><span class="p">,</span> <span class="c1">// Tên cơ sở dữ liệu</span>
+        <span class="nb">NULL</span><span class="p">,</span> <span class="c1">// Trùy chọn logic cơ sở dữ liệu</span>
+        <span class="n">DB_BTREE</span><span class="p">,</span> <span class="c1">// Phương thức truy cập dữ liệu, cấu trúc Btree</span>
+        <span class="n">oFlags</span><span class="p">,</span> <span class="c1">// Open flags</span>
+        <span class="mi">0</span><span class="p">);</span> <span class="c1">// File mode (using defaults)</span>
+        
+    <span class="p">}</span> <span class="k">catch</span><span class="p">(</span><span class="n">DbException</span> <span class="o">&amp;</span><span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// Error handling code goes here</span>
+    <span class="p">}</span> <span class="k">catch</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">exception</span> <span class="o">&amp;</span><span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// Error handling code goes here</span>
+    <span class="p">}</span> 
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Mở terminal tại thư mục chứa source code C++:</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>c++ hello.cpp <span class="nt">-o</span> dbApp <span class="nt">-I</span> /usr/local/berkeleydb/include/ <span class="nt">-L</span>/usr/local/berkeleydb/lib <span class="nt">-ldb_cxx-18</span>.1
+</code></pre></div></div>
+
+<p>Giải thích:</p>
+
+<ol>
+  <li><code class="highlighter-rouge">hello.cpp</code>: tên file source code C++</li>
+  <li><code class="highlighter-rouge">dbApp</code>: Tên ứng dụng</li>
+  <li><code class="highlighter-rouge">/usr/local/berkeleydb/include/</code>: nơi chứa header thư viện BerkeleyDB</li>
+  <li><code class="highlighter-rouge">usr/local/berkeleydb/lib</code>: link thư viện với source code.</li>
+</ol>
+
+<h1>Chương 4: Cấu hình phương thức truy cập</h1>
+
+<h1>Chương 5: Hiệu xuất của BerkeleyDB và so sánh với MySQL</h1>
+
+<h2>5.1. Giới thiệu</h2>
+
+<p>Kiểm tra được thực hiện lên trên một cấu hình hệ thống cho cả BerkeleyDB và Mysql. Mặc dù hai hệ thống cơ sở dữ liệu hoàn toàn khác biệt nhau, BerkeleyDB là hệ thống cơ sở dữ liệu nhúng và là memory-only-based, trong khi Mysql là hệ thống cơ sở dữ liệu disk-based. Vậy nên kiểm tra này chỉ giúp hiểu một số cách sử dụng của BerkeleyDB và sự khác biệt với Mysql. Kiểu tra này không đại diện cho hiệu năng giữa hai hệ thống cơ sở dữ liệu. Hiệu năng của một hệ thống còn phụ thuộc vào rất nhiều thứ, ví dụ như lượng dữ liệu, cách tổ chức dữ liệu, cách truy cập dữ liệu, kiến trúc của hệ thống etc.</p>
+
+<h2>5.2. Nền tảng và phương pháp sử dụng</h2>
+
+<p>Hệ thống sử dụng sử để thực hiện kiểm tra:</p>
+
+<p><strong>Linux:</strong> Ubuntu 18.04, Core i5 4300u, SSD Samsung evo 500G, 8G Ram.</p>
+
+<p><strong>Phương pháp truy cập dữ liệu</strong>: B Tree</p>
+
+<p><strong>Cấu trúc bản gi:</strong> key-value là một cặp số nguyên</p>
+
+<h2>5.3. Đánh giá</h2>
+
+<h4>5.3.1 Đánh giá khi chèn dữ liệu</h4>
+
+
+<style>
+table, th, td {
+  border: 1px solid black;
+  padding: 20px;
+}
+
+</style>
+</head>
+<body>
+
+<table>
+  <tr>
+    <th>Số lượng bản gi</th>
+    <th>BerkeleyDB  (giây)</th>
+    <th>Mysql  (giây)</th>
+  </tr>
+  <tr>
+    <th>100.000</th>
+    <td>0.5849719047546387</td>
+    <td>0.23874300</td>
+  </tr>
+  <tr>
+    <th>500.000</th>
+    <td>2.9298717975616455</td>
+    <td>1.11532950</td>
+  </tr>
+  <tr>
+    <th>1.000.000</th>
+    <td>6.420325994491577</td>
+    <td>2.30068925</td>
+  </tr>
+  <tr>
+    <th>5.000.000</th>
+    <td>35.55406403541565</td>
+    <td>14.126098744</td>
+  </tr>
+
+  <tr>
+    <th>10.000.000</th>
+    <td>85.70681095123291</td>
+    <td>25.33509300</td>
+  </tr>
+
+  <tr>
+    <th>50.000.000</th>
+    <td>380.6401858329773</td>
+    <td>112.459842365</td>
+  </tr>
+
+  <tr>
+    <th>100.000.000</th>
+    <td>730.3879874994359</td>
+    <td>400.76232332</td>
+  </tr>
+  
+</table>
+<br>
+
+<p><img src="/assets/berkeleydb/Figure_1.png" /></p>
+
+<p><strong>Kết luận:</strong> Sau khi dùng python để vẽ lên hình ta thấy khi chèn bản gi, BerkeleyDB tăng trưởng như là một hàm tuyến tính. Tốc độ của hai hệ thống đều khá nhanh, Mysql có</p>
+
+<h4>5.3.2 Tìm kiếm một bản gi</h4>
+
+<style>
+table, th, td {
+  border: 1px solid black;
+  padding: 20px;
+}
+
+</style>
+</head>
+<body>
+
+<table>
+  <tr>
+    <th>BerkeleyDB</th>
+    <th>Mysql</th>
+  </tr>
+  <tr>
+    <td>0.00010704994201660156 (giây)</td>
+    <td>0.00508250</td>
+  </tr>
+
+  
+</table>
+<br>
+
+
+<p><img src="/assets/berkeleydb/Figure_2.png" /></p>
+
+<p>Do BerkeleyDB lưu dữ liệu trên Balance Tree và đã được xắp xếp nên tìm kiếm là rất nhanh, hơn nữa nó không cần phân tích cú pháp, tối ưu truy vấn như Mysql nên tốc độ là vượt trội.</p>
+
+<h4>5.3.3 Đánh giá khi duyệt trên một bảng</h4>
+
+
+<style>
+table, th, td {
+  border: 1px solid black;
+  padding: 20px;
+}
+
+</style>
+</head>
+<body>
+
+<table>
+  <tr>
+    <th>Số lượng bản gi</th>
+    <th>BerkeleyDB</th>
+    <th>Mysql</th>
+  </tr>
+  <tr>
+    <th>100.000</th>
+    <td>1.0750007629394531 </td>
+    <td>0.11555250</td>
+  </tr>
+  <tr>
+    <th>500.000</th>
+    <td>5.796699047088623 </td>
+    <td>0.32568850 </td>
+  </tr>
+   <tr>
+    <th>1.000.000</th>
+    <td>10.133979082107544 </td>
+    <td>0.51060000</td>
+  </tr>
+   <tr>
+    <th>5.000.000</th>
+    <td>51.57819104194641 </td>
+    <td>5.60996200</td>
+  </tr>
+   <tr>
+    <th>10.000.000</th>
+    <td>112.33562994003296 </td>
+    <td>11.42579646</td>
+  </tr>
+   <tr>
+    <th>50.000.000</th>
+    <td>564.8038239479065 </td>
+    <td>60.56385928</td>
+  </tr>
+
+   <tr>
+    <th>100.000.000</th>
+    <td>1298.563957957284 </td>
+    <td>125.56396730</td>
+  </tr>
+
+  
+</table>
+<br>
+
+
+<p><img src="/assets/berkeleydb/Figure_3.png" /></p>
+
+<h2>Kết luận</h2>
+
+<h1>Chương 6: Những công ty lớn nào đang sử dụng BerkeleyDB</h1>
+
+                    
+        </section>
+
+
+
+    </div>    
+
+</section>
+		</section>
+	</main></body>
+</html>

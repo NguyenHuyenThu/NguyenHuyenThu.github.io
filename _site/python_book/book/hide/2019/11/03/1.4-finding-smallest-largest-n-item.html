@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link href="https://fonts.googleapis.com/css?family=Merriweather:300|Raleway:400,700" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style_vuggg.css">
+<title>1.4.Finding the Largest and Smallest N items</title>
+<!-- Begin Jekyll SEO tag v2.1.0 -->
+<title>1.4.Finding the Largest and Smallest N items - vuggg</title>
+<meta property="og:title" content="1.4.Finding the Largest and Smallest N items" />
+<meta name="description" content="Tìm N phần tử lớn nhất/ nhỏ nhất" />
+<meta property="og:description" content="Tìm N phần tử lớn nhất/ nhỏ nhất" />
+<link rel="canonical" href="http://localhost:4000/python_book/book/hide/2019/11/03/1.4-finding-smallest-largest-n-item.html" />
+<meta property="og:url" content="http://localhost:4000/python_book/book/hide/2019/11/03/1.4-finding-smallest-largest-n-item.html" />
+<meta property="og:site_name" content="vuggg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-11-03T22:01:03+07:00" />
+<script type="application/ld+json">
+{"@context": "http://schema.org",
+"@type": "BlogPosting",
+"headline": "1.4.Finding the Largest and Smallest N items",
+"datePublished": "2019-11-03T22:01:03+07:00",
+"description": "Tìm N phần tử lớn nhất/ nhỏ nhất",
+"url": "http://localhost:4000/python_book/book/hide/2019/11/03/1.4-finding-smallest-largest-n-item.html"}</script>
+<!-- End Jekyll SEO tag -->
+</head>
+<body>
+	<main class="container">
+		<section class="about">
+			
+			<a class="back-button" href="/">
+				<h4>Home</h4>
+			</a>
+            <p class="tagline"></p>
+            <p class="tagline">Python</p>
+            <p class="tagline">Cook Book</p>
+		</section>
+		<section class="content">
+			<section class="exercise-content">
+
+    <div class="exercise-heading">
+        1.4.Finding the Largest and Smallest N items
+    </div>
+
+    <div class="exercise-content">
+
+        
+        <section id="exercise-container">
+            
+                    <h2>Tìm N phần tử lớn nhất/ nhỏ nhất</h2>
+
+<h3>Bạn muốn tạo một danh sách N số lớn nhất/nhỏ nhất từ một tập hợp</h3>
+<h3>Solution</h3>
+
+<p>Module heapq có hai phương thức nlargest() và nsmallest(), nó thực hiện đúng những gì mà ta cần.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">heapq</span>
+
+<span class="n">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">124</span><span class="p">,</span><span class="mi">43</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">heapq</span><span class="o">.</span><span class="n">nlagest</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">nums</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">heapq</span><span class="o">.</span><span class="n">nsmallest</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">nums</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p>Cả hai hàm đều nhận tham số key, nó cho phép ta sử dụng với các cấu trúc dữ liệu phức tạp hơn.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">heapq</span>
+
+<span class="n">portfolio</span> <span class="o">=</span><span class="p">[{</span><span class="s">'name'</span><span class="p">:</span><span class="s">'IBM'</span><span class="p">,</span> <span class="s">'shares'</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="s">'price'</span><span class="p">:</span> <span class="mf">91.1</span><span class="p">},</span>
+<span class="p">{</span><span class="s">'name'</span><span class="p">:</span><span class="s">'AAPL'</span><span class="p">,</span> <span class="s">'shares'</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span> <span class="s">'price'</span><span class="p">:</span> <span class="mf">543.22</span><span class="p">},</span>
+<span class="p">{</span><span class="s">'name'</span><span class="p">:</span><span class="s">'FB'</span><span class="p">,</span> <span class="s">'shares'</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span> <span class="s">'price'</span><span class="p">:</span> <span class="mf">21.09</span><span class="p">},</span>
+<span class="p">{</span><span class="s">'name'</span><span class="p">:</span><span class="s">'HPQ'</span><span class="p">,</span> <span class="s">'shares'</span><span class="p">:</span> <span class="mi">35</span><span class="p">,</span> <span class="s">'price'</span><span class="p">:</span> <span class="mf">31.75</span><span class="p">},</span>
+<span class="p">{</span><span class="s">'name'</span><span class="p">:</span><span class="s">'YHOO'</span><span class="p">,</span> <span class="s">'shares'</span><span class="p">:</span> <span class="mi">45</span><span class="p">,</span> <span class="s">'price'</span><span class="p">:</span> <span class="mf">16.35</span><span class="p">},</span>
+<span class="p">{</span><span class="s">'name'</span><span class="p">:</span><span class="s">'ACME'</span><span class="p">,</span> <span class="s">'shares'</span><span class="p">:</span> <span class="mi">75</span><span class="p">,</span> <span class="s">'price'</span><span class="p">:</span> <span class="mf">115.65</span><span class="p">}]</span>
+
+<span class="n">cheap</span> <span class="o">=</span> <span class="n">heapq</span><span class="o">.</span><span class="n">nsmallest</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">portfolio</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="n">s</span><span class="p">[</span><span class="s">'price'</span><span class="p">])</span>
+<span class="n">expensive</span> <span class="o">=</span> <span class="n">heapq</span><span class="o">.</span><span class="n">nlargest</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">portfolio</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="n">s</span><span class="p">[</span><span class="s">'price'</span><span class="p">])</span>
+
+
+<span class="n">cheap</span> <span class="o">=</span> <span class="n">heapq</span><span class="o">.</span><span class="n">nsmallest</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">portfolio</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="n">s</span><span class="p">[</span><span class="s">'price'</span><span class="p">])</span>
+<span class="n">expensive</span> <span class="o">=</span> <span class="n">heapq</span><span class="o">.</span><span class="n">nlargest</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">portfolio</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="n">s</span><span class="p">[</span><span class="s">'price'</span><span class="p">])</span>
+</code></pre></div></div>
+
+                    
+        </section>
+
+
+
+    </div>    
+
+</section>
+		</section>
+	</main></body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	{%- include wall_head.html -%}
+</head>
+<body>
+		<header>
+			<nav>
+				<a href="/"><img src=""/>Logo</a>
+				<section class="user-info">
+					<img src="assets/vuggg.jpeg"  class="avatar"/>
+					<span>Username</span>
+				</section>
+			</nav>
+		</header>
+	<main class="container">
+		<section class="about">
+            
+            <section class="avatar-container">
+                <a href="/">
+                    <img class="avatar"
+                        src="{{ "/assets/phung.jpg" | relative_url }}" 
+                        alt="{{ site.plainwhite.name }}">
+				</a>
+				
+            </section>
+            <p class="tagline">{{ site.plainwhite.name }}</p>
+            <ul class="social">
+					<a href="https://github.com/{{ site.plainwhite.social_links.github }}"><li><i class="icon-github-circled"></i></li></a>
+					<a href="https://www.linkedin.com/{{ site.plainwhite.social_links.linkedIn }}"><li><i class="icon-linkedin-squared"></i></li></a>
+					<a href="https://twitter.com/{{ site.plainwhite.social_links.twitter }}"><li><i class="icon-twitter-squared"></i></li></a>
+			</ul>
+			
+		</section>
+		<section class="content">
+			{{ content }}
+		</section>
+	</main>
+	{%- if site.plainwhite.analytics_id -%}
+	<script async src="https://www.googletagmanager.com/gtag/js?id={{ site.plainwhite.analytics_id }}"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', '{{ site.plainwhite.analytics_id }}');
+	</script>
+	{%- endif -%}
+</body>
+
+</html>

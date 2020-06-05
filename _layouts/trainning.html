@@ -1,0 +1,31 @@
+---
+layout: trainning_default
+---
+<section class="exercise-content">
+
+        <div class="exercise-heading">
+            Content
+        </div>
+        {%- for post in site.posts -%}
+            {%- if post.categories[0] == "trainning" and post.categories[1] != "hide"  -%}
+            
+            <ul>
+                <li>
+                    <div class="courses-item">
+                        <a href="{{ post.url | relative_url }}">
+                            {{ post.title | escape }}
+                        </a>
+                    </div>
+                </li>
+
+            </ul>
+            {%- endif -%}
+        {%- endfor -%}
+        
+
+    <script>
+
+    </script>
+    
+
+</section>

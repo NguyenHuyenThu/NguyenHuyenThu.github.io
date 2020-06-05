@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link href="https://fonts.googleapis.com/css?family=Merriweather:300|Raleway:400,700" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style_vuggg.css">
+<title>1.15 Group reocord together based on a field</title>
+<!-- Begin Jekyll SEO tag v2.1.0 -->
+<title>1.15 Group reocord together based on a field - vuggg</title>
+<meta property="og:title" content="1.15 Group reocord together based on a field" />
+<meta name="description" content="Problem Bạn có một chuỗi các dictionary huặc các đối tượng, bạn muốn duyệt qua chuỗi đó và nhóm chúng lại theo một trường thông tin cụ thể nào đó, ví dụ như date." />
+<meta property="og:description" content="Problem Bạn có một chuỗi các dictionary huặc các đối tượng, bạn muốn duyệt qua chuỗi đó và nhóm chúng lại theo một trường thông tin cụ thể nào đó, ví dụ như date." />
+<link rel="canonical" href="http://localhost:4000/python_book/book/2019/11/12/group-records-together-based-filed.html" />
+<meta property="og:url" content="http://localhost:4000/python_book/book/2019/11/12/group-records-together-based-filed.html" />
+<meta property="og:site_name" content="vuggg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-11-12T20:01:03+07:00" />
+<script type="application/ld+json">
+{"@context": "http://schema.org",
+"@type": "BlogPosting",
+"headline": "1.15 Group reocord together based on a field",
+"datePublished": "2019-11-12T20:01:03+07:00",
+"description": "Problem Bạn có một chuỗi các dictionary huặc các đối tượng, bạn muốn duyệt qua chuỗi đó và nhóm chúng lại theo một trường thông tin cụ thể nào đó, ví dụ như date.",
+"url": "http://localhost:4000/python_book/book/2019/11/12/group-records-together-based-filed.html"}</script>
+<!-- End Jekyll SEO tag -->
+</head>
+<body>
+	<main class="container">
+		<section class="about">
+			
+			<a class="back-button" href="/">
+				<h4>Home</h4>
+			</a>
+            <p class="tagline"></p>
+            <p class="tagline">Python</p>
+            <p class="tagline">Cook Book</p>
+		</section>
+		<section class="content">
+			<section class="exercise-content">
+
+    <div class="exercise-heading">
+        1.15 Group reocord together based on a field
+    </div>
+
+    <div class="exercise-content">
+
+        
+        <section id="exercise-container">
+            
+                    <h4>Problem</h4>
+<p>Bạn có một chuỗi các dictionary huặc các đối tượng, bạn muốn duyệt qua chuỗi đó và nhóm chúng lại theo một trường thông tin cụ thể nào đó, ví dụ như date.</p>
+
+<h4>Solution</h4>
+
+<p>Hàm itertools.groupby() đặc biệt phù hợp cho vấn đề này, minh họa ví dụ duwois đây.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kn">from</span> <span class="nn">operator</span> <span class="kn">import</span> <span class="n">itemgetter</span>
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">groupby</span>
+
+<span class="n">rows</span> <span class="o">=</span> <span class="p">[</span> 
+    <span class="p">{</span><span class="s">'address'</span><span class="p">:</span> <span class="s">'5412 N CLARK'</span><span class="p">,</span> <span class="s">'date'</span><span class="p">:</span> <span class="s">'04/02/2012'</span><span class="p">},</span>
+    <span class="p">{</span><span class="s">'address'</span><span class="p">:</span> <span class="s">'5412 N CLARK'</span><span class="p">,</span> <span class="s">'date'</span><span class="p">:</span> <span class="s">'07/07/2043'</span><span class="p">},</span>
+    <span class="p">{</span><span class="s">'address'</span><span class="p">:</span> <span class="s">'5412 N CLARK'</span><span class="p">,</span> <span class="s">'date'</span><span class="p">:</span> <span class="s">'05/04/2086'</span><span class="p">},</span>
+    <span class="p">{</span><span class="s">'address'</span><span class="p">:</span> <span class="s">'5412 N CLARK'</span><span class="p">,</span> <span class="s">'date'</span><span class="p">:</span> <span class="s">'01/05/2012'</span><span class="p">},</span>
+    <span class="p">{</span><span class="s">'address'</span><span class="p">:</span> <span class="s">'5412 N CLARK'</span><span class="p">,</span> <span class="s">'date'</span><span class="p">:</span> <span class="s">'12/02/2015'</span><span class="p">}</span>
+    <span class="p">]</span>
+
+<span class="n">rows</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span> <span class="o">=</span> <span class="n">itemgetter</span><span class="p">(</span><span class="s">'date'</span><span class="p">))</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">groupby</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">key</span> <span class="o">=</span> <span class="n">itemgetter</span><span class="p">(</span><span class="s">'date'</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">date</span><span class="p">,</span> <span class="n">items</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">date</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+
+
+</code></pre></div></div>
+
+<h4>Discusion</h4>
+
+<p>Hàm groupby() hoạt động bằng cách quyét chuỗi phần tử của chúng ta và tìm tuần tự các phần tử dựa vào định danh (giá trị mà hàm chuyền vào từ khóa key). Trên mỗi lượt duyệt, nó trả về một iterator, dọc theo iterator đó nó tạo ra mỗi nhóm các phần tử có cùng giá trị.</p>
+
+<p>Một bước trước khi groupy là sắp xếp dữ liệu theo trường mà ta quan tâm. Sau đó groupby chỉ việc kiểm tra tuần tự các phần tử, nếu không sắp xếp bạn sẽ không nhận được các nhóm bản gi như bạn muốn.</p>
+
+<p>Nếu mục tiêu của bạn chỉ là nhóm dữ liệu lại với nhau bởi thuộc tính chẳng hạn như là date vào một cấu trúc dữ liệu lớn, cấu trúc đó cho phép ta truy cập nhẫu nhiên, khi đó bạn chỉ cần sử dụng <code class="highlighter-rouge">defauldict</code> để  xây dựng một multi dict. Ví dụ như sau:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+<span class="kn">from</span> <span class="nn">colections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
+
+<span class="n">row_by_date</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">rows</span><span class="p">:</span>
+    <span class="n">row_by_date</span><span class="p">[</span><span class="n">row</span><span class="p">[</span><span class="s">'date'</span><span class="p">]]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+
+</code></pre></div></div>
+
+<p>Với vị dụ này thì chúng ta không cần quan tâm tới việc chún ta cần phải sort dữ liệu trước khi chúng ta duyệt dữ liệu.</p>
+
+                    
+        </section>
+
+
+
+    </div>    
+
+</section>
+		</section>
+	</main></body>
+</html>

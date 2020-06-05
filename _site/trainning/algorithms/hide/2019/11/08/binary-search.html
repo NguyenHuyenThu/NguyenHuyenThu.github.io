@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link href="https://fonts.googleapis.com/css?family=Merriweather:300|Raleway:400,700" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style_vuggg.css">
+<title>1.1 Binary Search</title>
+<!-- Begin Jekyll SEO tag v2.1.0 -->
+<title>1.1 Binary Search - vuggg</title>
+<meta property="og:title" content="1.1 Binary Search" />
+<meta name="description" content="Binary search là thuật toán tìm kiếm trên mảng đã sắp xếp." />
+<meta property="og:description" content="Binary search là thuật toán tìm kiếm trên mảng đã sắp xếp." />
+<link rel="canonical" href="http://localhost:4000/trainning/algorithms/hide/2019/11/08/binary-search.html" />
+<meta property="og:url" content="http://localhost:4000/trainning/algorithms/hide/2019/11/08/binary-search.html" />
+<meta property="og:site_name" content="vuggg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-11-08T14:01:03+07:00" />
+<script type="application/ld+json">
+{"@context": "http://schema.org",
+"@type": "BlogPosting",
+"headline": "1.1 Binary Search",
+"datePublished": "2019-11-08T14:01:03+07:00",
+"description": "Binary search là thuật toán tìm kiếm trên mảng đã sắp xếp.",
+"url": "http://localhost:4000/trainning/algorithms/hide/2019/11/08/binary-search.html"}</script>
+<!-- End Jekyll SEO tag -->
+</head>
+<body>
+	<main class="container">
+		<section class="about">
+			
+			<a class="back-button" href="/">
+				<h4>Home</h4>
+			</a>
+            <p class="tagline"></p>
+            <p class="tagline">Algorithms</p>
+            <p class="tagline">Data Structure</p>
+		</section>
+		<section class="content">
+			<section class="exercise-content">
+
+    <div class="exercise-heading">
+        1.1 Binary Search
+    </div>
+
+    <div class="exercise-content">
+
+        
+        <section id="exercise-container">
+            
+                    <p>Binary search là thuật toán tìm kiếm trên mảng đã sắp xếp.</p>
+
+<p><strong><em>Độ phức tạp thuật toán: O(logn)</em></strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">BinarySearch</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">query</span><span class="p">):</span>
+    <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">)</span> <span class="o">-</span><span class="mi">1</span>
+
+    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;=</span>  <span class="n">j</span><span class="p">:</span>
+        <span class="n">middle</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="n">j</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'middle = '</span><span class="p">,</span> <span class="n">middle</span><span class="p">)</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="n">array</span><span class="p">[</span><span class="n">middle</span><span class="p">]</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'value = '</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">query</span> <span class="o">==</span> <span class="n">value</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">middle</span>
+        <span class="k">elif</span> <span class="n">query</span> <span class="o">&lt;</span> <span class="n">value</span><span class="p">:</span>
+            <span class="n">j</span> <span class="o">=</span> <span class="n">middle</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">i</span> <span class="o">=</span> <span class="n">middle</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="bp">None</span>
+
+<span class="n">ar</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">]</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">BinarySearch</span><span class="p">(</span><span class="n">ar</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+</code></pre></div></div>
+
+                    
+        </section>
+
+
+
+    </div>    
+
+</section>
+		</section>
+	</main></body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link href="https://fonts.googleapis.com/css?family=Merriweather:300|Raleway:400,700" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<title>Css selector</title>
+<!-- Begin Jekyll SEO tag v2.1.0 -->
+<title>Css selector - vuggg</title>
+<meta property="og:title" content="Css selector" />
+<meta name="description" content="Type selector" />
+<meta property="og:description" content="Type selector" />
+<link rel="canonical" href="http://localhost:4000/home/css/2019/10/11/css-selector.html" />
+<meta property="og:url" content="http://localhost:4000/home/css/2019/10/11/css-selector.html" />
+<meta property="og:site_name" content="vuggg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-10-11T12:31:03+07:00" />
+<script type="application/ld+json">
+{"@context": "http://schema.org",
+"@type": "BlogPosting",
+"headline": "Css selector",
+"datePublished": "2019-10-11T12:31:03+07:00",
+"description": "Type selector",
+"url": "http://localhost:4000/home/css/2019/10/11/css-selector.html"}</script>
+<!-- End Jekyll SEO tag -->
+</head>
+<body>
+	<main class="container">
+		<section class="about">
+			<a href="/">
+				<img src="/assets/phung.jpg" alt="Vuong Xuan">
+				<h2>Vuong Xuan</h2>
+			</a>
+			<p class="tagline">Developer</p>
+			<ul class="social">
+				<a class="item-social" href="https://github.com/vuggg"><li><i class="icon-github-circled"></i></li></a>
+				<a class="item-social" href="https://facebook.com/pxv1702"><li><i><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg></i></li></a>
+			</ul>
+			
+			<div class="break-line"></div>
+
+			<section class="link-resource">
+				<a class="link-resource item" href="/courses.html">
+					Courses studied
+				</a>
+				
+				<a class="link-resource item" href="/xam.html">
+					Xam'
+				</a>
+				
+			</section>
+			<p>&copy; 2019</p>
+		</section>
+		<section class="content">
+			<div class="post-container">
+  <a class="post-link" href="/home/css/2019/10/11/css-selector.html">
+    <h2 class="post-title">Css selector</h2>
+  </a>
+  <div class="post-meta">
+    <ul class="post-categories"><li>Css</li></ul>
+    <div class="post-date"><i class="icon-calendar"></i>11-10-2019</div>
+  </div>
+  <div class="post">
+    <h4>Type selector</h4>
+
+<p>Css attribute selector bắt các phần tử dựa trên sự xuất hiện của các thuộc tính huặc là giá trị của thuộc tính.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/* Bắt phần tử &lt;a&gt; với thuộc tính title*/
+a[title]{
+    color: red;
+}
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/* Bắt thuộc tính a với thuộc tính href có giá trị xác định */
+a[href="http://google.com"]{
+    color: red;
+}
+
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/* Bắt thuộc tính &lt;a&gt; có thuộc tính class có chưa giá trị logo*/
+a[class~="logo"] {
+  padding: 2px;
+}
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/* Bắt thuộc tính &lt;a&gt; có giá trị của thuộc tính href là .org */
+a[href$=".org"] {
+  font-style: italic;
+}
+</code></pre></div></div>
+
+<ul>
+  <li><code class="highlighter-rouge">[attr|=value]</code></li>
+</ul>
+
+<p>Đại diện cho một phần tử có thuộc tính <code class="highlighter-rouge">attr</code> và có gía trị của thuộc tính chính xác là <code class="highlighter-rouge">value</code>
+ huặc là theo sau bởi ký tự <code class="highlighter-rouge">-</code>.</p>
+
+<h4>Combinators</h4>
+
+<ul>
+  <li>
+    <p>Adjacent sibling combinators <code class="highlighter-rouge">+</code>: Bắt phần tử liền sau nếu ngay theo nó đứng sau một phần tử đúng trước.</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>img + p {
+  font-style: bold;
+}
+</code></pre></div>    </div>
+
+    <p>Bắt các phần tử  <code class="highlighter-rouge">&lt;p&gt;</code> nếu nó đứng sau một thẻ <code class="highlighter-rouge">img</code>.</p>
+  </li>
+  <li>
+    <p>General sibling combinator <code class="highlighter-rouge">~</code>: Bắt tất cả các phần tử theo sau một selector (không nhất thiệt phải theo
+ sau ngay lập tực).</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/* Paragraphs that are siblings of and subsequent to any  image */  
+ img ~ p {
+ color: red;
+ }
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<svg class="lds-spinner" width="100px"  height="100px"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" style="background: none;"><g transform="rotate(0 50 50)">
+  <rect x="47" y="24" rx="9.4" ry="4.8" width="6" height="12" fill="#fc4309">
+    <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.9166666666666666s" repeatCount="indefinite"></animate>
+  </rect>
+</g><g transform="rotate(30 50 50)">
+  <rect x="47" y="24" rx="9.4" ry="4.8" width="6" height="12" fill="#fc4309">
+    <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.8333333333333334s" repeatCount="indefinite"></animate>
+  </rect>
+</g><g transform="rotate(60 50 50)">
+  <rect x="47" y="24" rx="9.4" ry="4.8" width="6" height="12" fill="#fc4309">
+    <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.75s" repeatCount="indefinite"></animate>
+  </rect>
+</g><g transform="rotate(90 50 50)">
+  <rect x="47" y="24" rx="9.4" ry="4.8" width="6" height="12" fill="#fc4309">
+    <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.6666666666666666s" repeatCount="indefinite"></animate>
+  </rect>
+</g><g transform="rotate(120 50 50)">
+  <rect x="47" y="24" rx="9.4" ry="4.8" width="6" height="12" fill="#fc4309">
+    <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.5833333333333334s" repeatCount="indefinite"></animate>
+  </rect>
+</g><g transform="rotate(150 50 50)">
+  <rect x="47" y="24" rx="9.4" ry="4.8" width="6" height="12" fill="#fc4309">
+    <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.5s" repeatCount="indefinite"></animate>
+  </rect>
+</g><g transform="rotate(180 50 50)">
+  <rect x="47" y="24" rx="9.4" ry="4.8" width="6" height="12" fill="#fc4309">
+    <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.4166666666666667s" repeatCount="indefinite"></animate>
+  </rect>
+</g><g transform="rotate(210 50 50)">
+  <rect x="47" y="24" rx="9.4" ry="4.8" width="6" height="12" fill="#fc4309">
+    <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.3333333333333333s" repeatCount="indefinite"></animate>
+  </rect>
+</g><g transform="rotate(240 50 50)">
+  <rect x="47" y="24" rx="9.4" ry="4.8" width="6" height="12" fill="#fc4309">
+    <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.25s" repeatCount="indefinite"></animate>
+  </rect>
+</g><g transform="rotate(270 50 50)">
+  <rect x="47" y="24" rx="9.4" ry="4.8" width="6" height="12" fill="#fc4309">
+    <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.16666666666666666s" repeatCount="indefinite"></animate>
+  </rect>
+</g><g transform="rotate(300 50 50)">
+  <rect x="47" y="24" rx="9.4" ry="4.8" width="6" height="12" fill="#fc4309">
+    <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.08333333333333333s" repeatCount="indefinite"></animate>
+  </rect>
+</g><g transform="rotate(330 50 50)">
+  <rect x="47" y="24" rx="9.4" ry="4.8" width="6" height="12" fill="#fc4309">
+    <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="0s" repeatCount="indefinite"></animate>
+  </rect>
+</g></svg>
+
+  </div>
+		</section>
+	</main></body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link href="https://fonts.googleapis.com/css?family=Merriweather:300|Raleway:400,700" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style_vuggg.css">
+<title>1.1.Trích xuất một sequence vào các biến riêng biệt</title>
+<!-- Begin Jekyll SEO tag v2.1.0 -->
+<title>1.1.Trích xuất một sequence vào các biến riêng biệt - vuggg</title>
+<meta property="og:title" content="1.1.Trích xuất một sequence vào các biến riêng biệt" />
+<meta name="description" content="Problem" />
+<meta property="og:description" content="Problem" />
+<link rel="canonical" href="http://localhost:4000/python_book/book/hide/2019/10/27/unpacking-sequence-into-separate-variable.html" />
+<meta property="og:url" content="http://localhost:4000/python_book/book/hide/2019/10/27/unpacking-sequence-into-separate-variable.html" />
+<meta property="og:site_name" content="vuggg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-10-27T15:01:03+07:00" />
+<script type="application/ld+json">
+{"@context": "http://schema.org",
+"@type": "BlogPosting",
+"headline": "1.1.Trích xuất một sequence vào các biến riêng biệt",
+"datePublished": "2019-10-27T15:01:03+07:00",
+"description": "Problem",
+"url": "http://localhost:4000/python_book/book/hide/2019/10/27/unpacking-sequence-into-separate-variable.html"}</script>
+<!-- End Jekyll SEO tag -->
+</head>
+<body>
+	<main class="container">
+		<section class="about">
+			
+			<a class="back-button" href="/">
+				<h4>Home</h4>
+			</a>
+            <p class="tagline"></p>
+            <p class="tagline">Python</p>
+            <p class="tagline">Cook Book</p>
+		</section>
+		<section class="content">
+			<section class="exercise-content">
+
+    <div class="exercise-heading">
+        1.1.Trích xuất một sequence vào các biến riêng biệt
+    </div>
+
+    <div class="exercise-content">
+
+        
+        <section id="exercise-container">
+            
+                    <h3>Problem</h3>
+
+<p>Bạn có một bộ N phần tử, huặc một sequence và muốn trích xuất giạ trị vào tập hợp N biến.</p>
+
+<h3>Solution</h3>
+
+<p>Bất kỳ sequence huặc một iterable nào cũng có thể trích xuất ra các biến sử dụng một phép toán gán đơn giản. Yêu cầu duy nhất là số lượng các biến phải khớp với số lượng phần tử của sequence huặc iterable.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">p</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span> <span class="o">=</span> <span class="n">p</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="c1"># 1
+</span></code></pre></div></div>
+
+<h3>Dicussion</h3>
+
+<p>Thực ra trích xuất sử dụng phép toán gán hoạt động với bất kỳ một object nào nếu nó là iterable. Không chỉ hoạt động với tuple huặc list. Nó hoạt động tốt với cả: string, files, iterator và generator.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">s</span> <span class="o">=</span> <span class="s">"hello"</span>
+
+<span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">e</span> <span class="o">=</span> <span class="n">s</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="c1"># kết quả sẽ là "h".
+</span></code></pre></div></div>
+
+<p>Đôi khi bạn muốn bỏ qua một vài giá trị nào đó. Python không có cú pháp đặc biệt nào cho việc này, tuy nhiên bạn có thể  sử dụng dấu “_” để bỏ qua việc đặt tên biến cho những giá trị không cần thiết.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="s">'haha'</span><span class="p">,</span> <span class="s">'hehe'</span><span class="p">,</span> <span class="s">'hihi'</span><span class="p">]</span>
+
+<span class="n">_</span><span class="p">,</span> <span class="n">hehe</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">data</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">hehe</span><span class="p">)</span> <span class="c1"># hehe
+</span></code></pre></div></div>
+
+                    
+        </section>
+
+
+
+    </div>    
+
+</section>
+		</section>
+	</main></body>
+</html>

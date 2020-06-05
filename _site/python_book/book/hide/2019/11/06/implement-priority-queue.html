@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link href="https://fonts.googleapis.com/css?family=Merriweather:300|Raleway:400,700" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style_vuggg.css">
+<title>1.5 Implement Priority queue</title>
+<!-- Begin Jekyll SEO tag v2.1.0 -->
+<title>1.5 Implement Priority queue - vuggg</title>
+<meta property="og:title" content="1.5 Implement Priority queue" />
+<meta name="description" content="Triển khai câu trúc hàng đợi ưu tiên" />
+<meta property="og:description" content="Triển khai câu trúc hàng đợi ưu tiên" />
+<link rel="canonical" href="http://localhost:4000/python_book/book/hide/2019/11/06/implement-priority-queue.html" />
+<meta property="og:url" content="http://localhost:4000/python_book/book/hide/2019/11/06/implement-priority-queue.html" />
+<meta property="og:site_name" content="vuggg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-11-06T20:01:03+07:00" />
+<script type="application/ld+json">
+{"@context": "http://schema.org",
+"@type": "BlogPosting",
+"headline": "1.5 Implement Priority queue",
+"datePublished": "2019-11-06T20:01:03+07:00",
+"description": "Triển khai câu trúc hàng đợi ưu tiên",
+"url": "http://localhost:4000/python_book/book/hide/2019/11/06/implement-priority-queue.html"}</script>
+<!-- End Jekyll SEO tag -->
+</head>
+<body>
+	<main class="container">
+		<section class="about">
+			
+			<a class="back-button" href="/">
+				<h4>Home</h4>
+			</a>
+            <p class="tagline"></p>
+            <p class="tagline">Python</p>
+            <p class="tagline">Cook Book</p>
+		</section>
+		<section class="content">
+			<section class="exercise-content">
+
+    <div class="exercise-heading">
+        1.5 Implement Priority queue
+    </div>
+
+    <div class="exercise-content">
+
+        
+        <section id="exercise-container">
+            
+                    <h2>Triển khai câu trúc hàng đợi ưu tiên</h2>
+
+<h4>Problem</h4>
+<p>Bạn muốn triển khai hàng đợi cấu trúc hàng đợi ưu tiên, cấu trúc mà nó xắp xếp các phần tử theo độ ưu tiên, luôn luôn trả về phần tử với độ ưu tiên cao nhất thông qua phép toán pop.</p>
+
+<h4>Solution</h4>
+
+<p>Chúng ta sẽ sử dụng module heapq để triển khai cấu trúc hàng đợi ưu tiên.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">heapq</span>
+
+<span class="k">class</span> <span class="nc">PriorityQueue</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_queue</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_index</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">def</span> <span class="nf">push</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="n">priority</span><span class="p">):</span>
+        <span class="n">heapq</span><span class="o">.</span><span class="n">heappush</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_queue</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="n">priority</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_index</span><span class="p">,</span> <span class="n">item</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_index</span> <span class="o">+=</span><span class="mi">1</span>
+    <span class="k">def</span> <span class="nf">pop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">heapq</span><span class="o">.</span><span class="n">heappop</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_queue</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+
+</code></pre></div></div>
+
+<p>Dưới đây là ví dụ sử dụng Priority Queue:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">q</span> <span class="o">=</span> <span class="n">PriorityQueue</span><span class="p">()</span>
+
+<span class="n">q</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="s">"alo"</span><span class="p">,</span><span class="mi">9</span><span class="p">)</span>
+<span class="n">q</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="s">"blo"</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+
+
+<span class="n">q</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span> <span class="c1"># alo
+</span></code></pre></div></div>
+
+<h4>Discusion</h4>
+
+<p>Vấn đề cốt lõi của triển khai phía trên liên quan đến việc heapq module. Hàm heapq.heappush() và heapq.heappop() chèn và xóa phần tử từ list _queue, theo cách mà phần tử có độ ưu tiên nhỏ nhất sẽ đứng đầu tiên trong list. Hàm heapq.heappop() sẽ trả về phần tử với độ ưu tiên thấp nhất.</p>
+
+
+                    
+        </section>
+
+
+
+    </div>    
+
+</section>
+		</section>
+	</main></body>
+</html>

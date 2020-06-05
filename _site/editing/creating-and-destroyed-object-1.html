@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link href="https://fonts.googleapis.com/css?family=Merriweather:300|Raleway:400,700" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<title>Consider static factory methods instead of constructors</title>
+<!-- Begin Jekyll SEO tag v2.1.0 -->
+<title>Consider static factory methods instead of constructors - vuggg</title>
+<meta property="og:title" content="Consider static factory methods instead of constructors" />
+<meta name="description" content="Blog Vuggg." />
+<meta property="og:description" content="Blog Vuggg." />
+<link rel="canonical" href="http://localhost:4000/editing/creating-and-destroyed-object-1.html" />
+<meta property="og:url" content="http://localhost:4000/editing/creating-and-destroyed-object-1.html" />
+<meta property="og:site_name" content="vuggg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-09-27T12:31:03+07:00" />
+<script type="application/ld+json">
+{"@context": "http://schema.org",
+"@type": "BlogPosting",
+"headline": "Consider static factory methods instead of constructors",
+"datePublished": "2019-09-27T12:31:03+07:00",
+"description": "Blog Vuggg.",
+"url": "http://localhost:4000/editing/creating-and-destroyed-object-1.html"}</script>
+<!-- End Jekyll SEO tag -->
+</head>
+<body>
+	<main class="container">
+		<section class="about">
+			<a href="/">
+				<img src="/assets/phung.jpg" alt="Vuong Xuan">
+				<h2>Vuong Xuan</h2>
+			</a>
+			<p class="tagline">Developer</p>
+			<ul class="social">
+				<a class="item-social" href="https://github.com/vuggg"><li><i class="icon-github-circled"></i></li></a>
+				<a class="item-social" href="https://facebook.com/pxv1702"><li><i><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg></i></li></a>
+			</ul>
+			
+			<div class="break-line"></div>
+
+			<section class="link-resource">
+				<a class="link-resource item" href="/courses.html">
+					Courses studied
+				</a>
+				
+				<a class="link-resource item" href="/xam.html">
+					Xam'
+				</a>
+				
+			</section>
+			<p>&copy; 2019</p>
+		</section>
+		<section class="content">
+			<div class="post-container">
+  <a class="post-link" href="/editing/creating-and-destroyed-object-1.html">
+    <h2 class="post-title">Consider static factory methods instead of constructors</h2>
+  </a>
+  <div class="post-meta">
+    <ul class="post-categories"><li>Java</li></ul>
+    <div class="post-date"><i class="icon-calendar"></i>27-09-2019</div>
+  </div>
+  <div class="post">
+    <h4>Item1: Xem xét thay thế constructor bằng static factory method</h4>
+
+<p>Cách truyền thống để một class cho phép một client lấy một thực thể là cung cấp một constructor. Có một kỹ thuật khác mà nó nên trở thành một phần của bộ công cụ của mọi lập trình viên. Một class có thể cung cấp một <code class="highlighter-rouge">static factory method</code>, nó đơn giản là một phương thức static trả về một thực thể của class. Dưới đây là một ví dụ đơn giản về việc chuyển biến boolean cơ bản sang Boolean object tham chiếu.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public static Boolean valueOf(boolean b){
+    return b ? Boolean.TRUE : Boolean.FALSE;
+}
+</code></pre></div></div>
+
+<p>Chú ý rằng <code class="highlighter-rouge">static factory method</code> không tương đương với <code class="highlighter-rouge">Factory Method</code> trong Design patternt.</p>
+
+<h5>Lợi ích</h5>
+
+<h6>1. Không giống với constructor, static factory method có tên.</h6>
+
+<p>Ví dụ khi chúng ta muốn tạo một số lớn:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public BigInteger(int, int, Random)
+</code></pre></div></div>
+
+<p>Chúng return một BigInteger, có thể  số integer đó là một số nguyên tốt. Thay vì sử dụng constructor gây khó hiểu như trên thì ta có thể dùng <code class="highlighter-rouge">static factory method</code>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public static BigInteger probablePrime(){
+
+}
+</code></pre></div></div>
+
+<p>Lập trình viên có thể xử lý các giới hạn này bằng việc thêm vào các constructor với danh sách tham số khác nhau, tuy nhiên đây là một cách rất tệ. Những người dùng nó, như là API  sẽ có thể nhầm lẫn và sử dụng sai constructor. Khi sử dung <code class="highlighter-rouge">static fatory method</code> chúng ta sẽ không gặp phải những giới hạn kể trên.</p>
+
+<h6>2. Lợi ích thứ hai là không giống như constructor, static factory method không yêu cầu tạo mới một object khi được gọi.</h6>
+
+<p>Nó cho phép chúng ta tạo ra các class không thể thay đổi, mà ta sử dụng các thực thể được cấu trúc sẵn. Huặc là sử dụng để cache các thực thể mà chúng ta đã tạo, nhằm tránh tạo ra các lặp thực thể không cần thiết.</p>
+
+<p>Khả năng của <code class="highlighter-rouge">static factory method</code> cho phép trả về cùng một thực thể từ những lần gọi khác nhau, cho phép lớp duy trì nghiêm ngặt các kiểm soát lên thực thể, tại mọi thời điểm.</p>
+
+<h6>3. Không giống như constructor, lợi ích thứ ba mà static factory method mang lại là nó có thể trả về một đối tượng của bất kỳ kiểu con nào của kiểu trả về của nó.</h6>
+
+<p>Nó cho ta một khả năng linh họat trong việc chọn lớp của object được trả về.</p>
+
+<p>Một ứng dụng của sự linh hoạt này là một API có thể trả về một đối tượng mà không cần phải pulibc class của chúng ta. Ẩn implement của các class trong cách làm này cho chúng ta muộn API vô cùng gọn nhẹ.</p>
+
+  </div>
+		</section>
+	</main></body>
+</html>

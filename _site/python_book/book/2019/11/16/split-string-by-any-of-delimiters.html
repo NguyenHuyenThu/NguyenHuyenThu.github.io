@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link href="https://fonts.googleapis.com/css?family=Merriweather:300|Raleway:400,700" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style_vuggg.css">
+<title>2.1 Split string on any of multiple delimiters</title>
+<!-- Begin Jekyll SEO tag v2.1.0 -->
+<title>2.1 Split string on any of multiple delimiters - vuggg</title>
+<meta property="og:title" content="2.1 Split string on any of multiple delimiters" />
+<meta name="description" content="Problem" />
+<meta property="og:description" content="Problem" />
+<link rel="canonical" href="http://localhost:4000/python_book/book/2019/11/16/split-string-by-any-of-delimiters.html" />
+<meta property="og:url" content="http://localhost:4000/python_book/book/2019/11/16/split-string-by-any-of-delimiters.html" />
+<meta property="og:site_name" content="vuggg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-11-16T19:01:03+07:00" />
+<script type="application/ld+json">
+{"@context": "http://schema.org",
+"@type": "BlogPosting",
+"headline": "2.1 Split string on any of multiple delimiters",
+"datePublished": "2019-11-16T19:01:03+07:00",
+"description": "Problem",
+"url": "http://localhost:4000/python_book/book/2019/11/16/split-string-by-any-of-delimiters.html"}</script>
+<!-- End Jekyll SEO tag -->
+</head>
+<body>
+	<main class="container">
+		<section class="about">
+			
+			<a class="back-button" href="/">
+				<h4>Home</h4>
+			</a>
+            <p class="tagline"></p>
+            <p class="tagline">Python</p>
+            <p class="tagline">Cook Book</p>
+		</section>
+		<section class="content">
+			<section class="exercise-content">
+
+    <div class="exercise-heading">
+        2.1 Split string on any of multiple delimiters
+    </div>
+
+    <div class="exercise-content">
+
+        
+        <section id="exercise-container">
+            
+                    <h4>Problem</h4>
+
+<p>Bạn cần tách một string vào các trường, nhưng dấu phân cách là không giống nhau.</p>
+
+<h4>Solution</h4>
+
+<p>Hàm split của string object chỉ sử dụng cho trường hợp vô cùng đơn giản, là các delimiter giống có sự nhất quán trong string. Muốn sử dụng trong trường hợp có nhiều delimiter thì ta cần sử dụng đến hàm split trong object <code class="highlighter-rouge">re</code>.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">re</span>
+
+<span class="n">line</span> <span class="o">=</span> <span class="s">'asdf fjdk; afed, fjek,asdf,foo'</span>
+
+<span class="n">res</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">r'[;,\s]\s*'</span><span class="p">,</span><span class="n">line</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="c1"># ['asdf', 'fjdk', 'afed', 'fjek', 'asdf', 'foo']
+</span>
+</code></pre></div></div>
+
+
+                    
+        </section>
+
+
+
+    </div>    
+
+</section>
+		</section>
+	</main></body>
+</html>

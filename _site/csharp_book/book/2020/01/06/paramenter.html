@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link href="https://fonts.googleapis.com/css?family=Merriweather:300|Raleway:400,700" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style_vuggg.css">
+<title>Paramenter</title>
+<!-- Begin Jekyll SEO tag v2.1.0 -->
+<title>Paramenter - vuggg</title>
+<meta property="og:title" content="Paramenter" />
+<meta name="description" content="Một phương thức sẽ có một chuỗi các tham số. Trong C# có hai kiểu truyền tham số cho hàm:" />
+<meta property="og:description" content="Một phương thức sẽ có một chuỗi các tham số. Trong C# có hai kiểu truyền tham số cho hàm:" />
+<link rel="canonical" href="http://localhost:4000/csharp_book/book/2020/01/06/paramenter.html" />
+<meta property="og:url" content="http://localhost:4000/csharp_book/book/2020/01/06/paramenter.html" />
+<meta property="og:site_name" content="vuggg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-01-06T13:01:03+07:00" />
+<script type="application/ld+json">
+{"@context": "http://schema.org",
+"@type": "BlogPosting",
+"headline": "Paramenter",
+"datePublished": "2020-01-06T13:01:03+07:00",
+"description": "Một phương thức sẽ có một chuỗi các tham số. Trong C# có hai kiểu truyền tham số cho hàm:",
+"url": "http://localhost:4000/csharp_book/book/2020/01/06/paramenter.html"}</script>
+<!-- End Jekyll SEO tag -->
+</head>
+<body>
+	<main class="container">
+		<section class="about">
+			
+			<a class="back-button" href="/">
+				<h4>Home</h4>
+			</a>
+            <p class="tagline"></p>
+            <p class="tagline">C#</p>
+            <p class="tagline">Programing</p>
+		</section>
+		<section class="content">
+			<section class="exercise-content">
+
+    <div class="exercise-heading">
+        Paramenter
+    </div>
+
+    <div class="exercise-content">
+
+        
+        <section id="exercise-container">
+            
+                    <p>Một phương thức sẽ có một chuỗi các tham số. Trong C# có hai kiểu truyền tham số cho hàm:</p>
+
+<ul>
+  <li>(none): truyền giá trị</li>
+  <li>ref: truyền tham chiếu</li>
+  <li>out: truyền tham chiếu</li>
+</ul>
+
+<h4>Truyền tham số dưới dạng giá trị</h4>
+
+<p>Ở mặc định thì C# sẽ truyền tham số dứoi dạng mặc định.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Test</span>
+<span class="p">{</span>
+    <span class="k">static</span> <span class="k">void</span> <span class="nf">Foo</span> <span class="p">(</span><span class="kt">int</span> <span class="n">p</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">p</span> <span class="p">=</span> <span class="n">p</span> <span class="p">+</span> <span class="m">1</span><span class="p">;</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span> <span class="p">(</span><span class="n">p</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">x</span> <span class="p">=</span> <span class="m">8</span><span class="p">;</span>
+        <span class="nf">Foo</span> <span class="p">(</span><span class="n">x</span><span class="p">);</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span> <span class="p">(</span><span class="n">x</span><span class="p">);</span> <span class="c1">// x will be 8</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Gán cho p một giá trị mới không làm thay đổi giá trị của x, lý do là bởi x và p được lưu trữ ở hai ví trị khác nhau trong bộ nhớ.</p>
+
+<p>Khi truyền mốt biến tham chiếu, C# sẽ tạo ra một biến tham chiếu là một bản copy của tham số được truyền vào.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Test</span>
+<span class="p">{</span>
+    <span class="k">static</span> <span class="k">void</span> <span class="nf">Foo</span> <span class="p">(</span><span class="n">StringBuilder</span> <span class="n">fooSB</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">fooSB</span><span class="p">.</span><span class="nf">Append</span> <span class="p">(</span><span class="s">"test"</span><span class="p">);</span>
+        <span class="n">fooSB</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">StringBuilder</span> <span class="n">sb</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">StringBuilder</span><span class="p">();</span>
+        <span class="nf">Foo</span> <span class="p">(</span><span class="n">sb</span><span class="p">);</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span> <span class="p">(</span><span class="n">sb</span><span class="p">.</span><span class="nf">ToString</span><span class="p">());</span> <span class="c1">// test</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Như bạn thấy thì việc ta gán cho fooSB là null không làm ảnh hưởng tới sb.</p>
+
+<h4>ref modifer</h4>
+
+<p>Để truyền tham số dươi dàng tham  chiếu, C# cung cấp <strong>ref paramenter modifef</strong>. Ví dụ dưới đây cả x và p đề đề cập đến một địa chỉ nhớ trong bộ nhớ.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Test</span>
+<span class="p">{</span>
+    <span class="k">static</span> <span class="k">void</span> <span class="nf">Foo</span> <span class="p">(</span><span class="k">ref</span> <span class="kt">int</span> <span class="n">p</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">p</span> <span class="p">=</span> <span class="n">p</span> <span class="p">+</span> <span class="m">1</span><span class="p">;</span>
+        <span class="c1">// Increment p by 1</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span> <span class="p">(</span><span class="n">p</span><span class="p">);</span>
+        <span class="c1">// Write p to screen</span>
+    <span class="p">}</span>
+    <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">x</span> <span class="p">=</span> <span class="m">8</span><span class="p">;</span>
+        <span class="nf">Foo</span> <span class="p">(</span><span class="k">ref</span> <span class="n">x</span><span class="p">);</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span> <span class="p">(</span><span class="n">x</span><span class="p">);</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4>out modifef</h4>
+
+<p><strong>out modifier</strong> cũng giống như ref modifier ngoại trừ việc nó không cần được gán trước khi gọi hàm, và phải được gán trước khi nó ra khỏi hàm.</p>
+
+<p><strong>out modifier</strong> thường được sử dụng khi hàm trả về nhiều giá trị.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Test</span>
+    <span class="p">{</span>
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">Split</span> <span class="p">(</span><span class="kt">string</span> <span class="n">name</span><span class="p">,</span> <span class="k">out</span> <span class="kt">string</span> <span class="n">firstNames</span><span class="p">,</span>
+        <span class="k">out</span> <span class="kt">string</span> <span class="n">lastName</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="n">name</span><span class="p">.</span><span class="nf">LastIndexOf</span> <span class="p">(</span><span class="sc">' '</span><span class="p">);</span>
+            <span class="n">firstNames</span> <span class="p">=</span> <span class="n">name</span><span class="p">.</span><span class="nf">Substring</span> <span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+            <span class="n">lastName</span> <span class="p">=</span> <span class="n">name</span><span class="p">.</span><span class="nf">Substring</span> <span class="p">(</span><span class="n">i</span> <span class="p">+</span> <span class="m">1</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="kt">string</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">;</span>
+            <span class="nf">Split</span> <span class="p">(</span><span class="s">"Stevie Ray Vaughan"</span><span class="p">,</span> <span class="k">out</span> <span class="n">a</span><span class="p">,</span> <span class="k">out</span> <span class="n">b</span><span class="p">);</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span> <span class="p">(</span><span class="n">a</span><span class="p">);</span><span class="c1">// Stevie Ray</span>
+            
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span> <span class="p">(</span><span class="n">b</span><span class="p">);</span><span class="c1">// Vaughan</span>
+            
+        <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>ref và out truyền tham số  dưới dạng tham chiếu.</p>
+
+
+                    
+        </section>
+
+
+
+    </div>    
+
+</section>
+		</section>
+	</main></body>
+</html>

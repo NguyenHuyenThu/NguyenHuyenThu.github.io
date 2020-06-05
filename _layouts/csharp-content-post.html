@@ -1,0 +1,25 @@
+---
+layout: csharp_default
+---
+{%- assign date_format = site.plainwhite.date_format | default: "%b %-d, %Y" -%}
+
+<section class="exercise-content">
+
+    <div class="exercise-heading">
+        {{ page.title | escape }}
+    </div>
+
+    <div class="exercise-content">
+
+        
+        <section id="exercise-container">
+            
+                    {{content}}
+                    
+        </section>
+
+
+
+    </div>    
+
+</section>

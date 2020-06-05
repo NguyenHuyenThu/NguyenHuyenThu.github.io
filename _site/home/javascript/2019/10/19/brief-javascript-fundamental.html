@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link href="https://fonts.googleapis.com/css?family=Merriweather:300|Raleway:400,700" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<title>Tóm tắt Javascript cơ bản</title>
+<!-- Begin Jekyll SEO tag v2.1.0 -->
+<title>Tóm tắt Javascript cơ bản - vuggg</title>
+<meta property="og:title" content="Tóm tắt Javascript cơ bản" />
+<meta name="description" content="Javascript Specials" />
+<meta property="og:description" content="Javascript Specials" />
+<link rel="canonical" href="http://localhost:4000/home/javascript/2019/10/19/brief-javascript-fundamental.html" />
+<meta property="og:url" content="http://localhost:4000/home/javascript/2019/10/19/brief-javascript-fundamental.html" />
+<meta property="og:site_name" content="vuggg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-10-19T15:01:03+07:00" />
+<script type="application/ld+json">
+{"@context": "http://schema.org",
+"@type": "BlogPosting",
+"headline": "Tóm tắt Javascript cơ bản",
+"datePublished": "2019-10-19T15:01:03+07:00",
+"description": "Javascript Specials",
+"url": "http://localhost:4000/home/javascript/2019/10/19/brief-javascript-fundamental.html"}</script>
+<!-- End Jekyll SEO tag -->
+</head>
+<body>
+	<main class="container">
+		<section class="about">
+			<a href="/">
+				<img src="/assets/phung.jpg" alt="Vuong Xuan">
+				<h2>Vuong Xuan</h2>
+			</a>
+			<p class="tagline">Developer</p>
+			<ul class="social">
+				<a class="item-social" href="https://github.com/vuggg"><li><i class="icon-github-circled"></i></li></a>
+				<a class="item-social" href="https://facebook.com/pxv1702"><li><i><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg></i></li></a>
+			</ul>
+			
+			<div class="break-line"></div>
+
+			<section class="link-resource">
+				<a class="link-resource item" href="/courses.html">
+					Courses studied
+				</a>
+				
+				<a class="link-resource item" href="/xam.html">
+					Xam'
+				</a>
+				
+			</section>
+			<p>&copy; 2019</p>
+		</section>
+		<section class="content">
+			<div class="post-container">
+  <a class="post-link" href="/home/javascript/2019/10/19/brief-javascript-fundamental.html">
+    <h2 class="post-title">Tóm tắt Javascript cơ bản</h2>
+  </a>
+  <div class="post-meta">
+    <ul class="post-categories"><li>Javascript</li></ul>
+    <div class="post-date"><i class="icon-calendar"></i>19-10-2019</div>
+  </div>
+  <div class="post">
+    <h2 id="javascript-specials">Javascript Specials</h2>
+
+<p>Bài này tóm tắt ngắn gọn các tính năng cơ bản của Javascript cũng ta đã học từ đầu tới giờ, đặc biệt chú ý đến những trường hợp nhảy cảm.</p>
+
+<h3 id="code-structure">Code structure</h3>
+
+<p>Câu lệnh được kết thúc bằng dấu chấm phẩy ;</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>alert('Hello'); alert('World');
+</code></pre></div></div>
+
+<p>Thông thường thì người ta sẽ viết mỗi câu lệnh trên một dòng để code clean dễ đọc hơn.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>alert('Hello')
+alert('World')
+</code></pre></div></div>
+
+<p>Dấu chấm phẩy ở cuối mỗi câu lệnh là không bắt buộc nhưng mà được khuyến nghị nên đặt dấu hai chấm vào cuối mỗi câu lệnh.</p>
+
+<h3 id="strict-mode">Strict mode</h3>
+
+<p>Để kích hoạt hết những chức năng mới nhất của Javascript, chúng ta đắt ‘use strict’ ở nơi bắt đầu script.</p>
+
+<p>Nếu không sử dụng strict thì mọi thứ vẫn hoạt đông nhưng một số hanh vi có thể là phiên bản cũ của Javascript, và một số vấn đề về tương thích trình duyệt có thể gặp phải. Một vài tính năng mới của Javascript (ví dụ như classes) sẽ được bật strict mode một cách ngầm định.</p>
+
+<h3 id="biến">Biến</h3>
+
+<ul>
+  <li>
+    <p>Có ba cách để khai báo biến:</p>
+  </li>
+  <li>let</li>
+  <li>const</li>
+  <li>
+    <p>var</p>
+  </li>
+  <li>
+    <p>Một biến có thể bao gồm:</p>
+  </li>
+  <li>Ký tự, số, một biến không được bắt đầu bằng chữ số.</li>
+  <li>Ký tự $, _</li>
+  <li>Ký tự không phải latin, ký tự tượng hình cũng có thể sử dụng nhưng mà không phổ biến.</li>
+</ul>
+
+<p>Kiểu dữ liệu của biến trong Javascript được xác định tự động, nó có thể lưu chữ bất kỳ kiểu dữ liệu nào.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>let x  = 9;
+x = 'javascript';
+</code></pre></div></div>
+
+<p>Có 7 kiểu dữ liệu:</p>
+
+<ul>
+  <li>number</li>
+  <li>string</li>
+  <li>boolean</li>
+  <li>null</li>
+  <li>underfined</li>
+  <li>object và symbol</li>
+</ul>
+
+<h3 id="vòng-lặp">Vòng lặp</h3>
+
+<p>Có ba kiểu vòng lặp</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// 1
+while (condition) {
+  ...
+}
+
+// 2
+do {
+  ...
+} while (condition);
+
+// 3
+for(let i = 0; i &lt; 10; i++) {
+  ...
+}
+</code></pre></div></div>
+
+<ul>
+  <li>Biến for(let…) định nghĩa trong vòng lặp for chỉ có khả năng sử dụng trong thân vòng lặp.</li>
+  <li>break cho phép ta thoát khỏi vòng lặp trong cùng.</li>
+</ul>
+
+<h3 id="the-switch">The “switch”</h3>
+
+<p>Cấu trúc switch có thể thay thế cho lệnh điều kiện if, nó sử dụng === để so sánh.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>let age = prompt('Your age?', 18);
+
+switch (age) {
+  case 18:
+    alert("Won't work"); // the result of prompt is a string, not a number
+
+  case "18":
+    alert("This works!");
+    break;
+
+  default:
+    alert("Any value not equal to one above");
+}
+</code></pre></div></div>
+
+
+  </div>
+		</section>
+	</main></body>
+</html>

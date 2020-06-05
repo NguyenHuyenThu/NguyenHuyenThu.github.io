@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link href="https://fonts.googleapis.com/css?family=Merriweather:300|Raleway:400,700" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style_vuggg.css">
+<title>1.18 Mapping names to sequence element</title>
+<!-- Begin Jekyll SEO tag v2.1.0 -->
+<title>1.18 Mapping names to sequence element - vuggg</title>
+<meta property="og:title" content="1.18 Mapping names to sequence element" />
+<meta name="description" content="Problem" />
+<meta property="og:description" content="Problem" />
+<link rel="canonical" href="http://localhost:4000/python_book/book/2019/11/16/mapping-names-to-sequence-element.html" />
+<meta property="og:url" content="http://localhost:4000/python_book/book/2019/11/16/mapping-names-to-sequence-element.html" />
+<meta property="og:site_name" content="vuggg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-11-16T09:01:03+07:00" />
+<script type="application/ld+json">
+{"@context": "http://schema.org",
+"@type": "BlogPosting",
+"headline": "1.18 Mapping names to sequence element",
+"datePublished": "2019-11-16T09:01:03+07:00",
+"description": "Problem",
+"url": "http://localhost:4000/python_book/book/2019/11/16/mapping-names-to-sequence-element.html"}</script>
+<!-- End Jekyll SEO tag -->
+</head>
+<body>
+	<main class="container">
+		<section class="about">
+			
+			<a class="back-button" href="/">
+				<h4>Home</h4>
+			</a>
+            <p class="tagline"></p>
+            <p class="tagline">Python</p>
+            <p class="tagline">Cook Book</p>
+		</section>
+		<section class="content">
+			<section class="exercise-content">
+
+    <div class="exercise-heading">
+        1.18 Mapping names to sequence element
+    </div>
+
+    <div class="exercise-content">
+
+        
+        <section id="exercise-container">
+            
+                    <h4>Problem</h4>
+
+<p>Bạn có đoạn code, nó truy cập vào một list huặc là một tuple bằng chỉ mục, nhưng điều đó khiến cho đoạn code trở lên khó đọc. Bạn muốn nó ít phụ thuộc vào vị trí trong cấu trúc, thay vì truy cập bằng chỉ mục thì ta truy cập bằng tên.</p>
+
+<h4>Giải pháp</h4>
+
+<p>Trong module <code class="highlighter-rouge">collections</code> có một hàm gọi là namedtuple() cung cấp những gì mà ta muốn ở trên. namedtuple thực chất là một factory method, nó trả về một lớp con của kiểu tuple. Bạn có thể đỗi xử với nó như là một lớp thông thường, bạn có thể sử dụng lớp con đó để tạo ra các thực thể, truyền giá trị cho các trường mà bạn định nghĩa. Ví dụ như sau:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">namedtuple</span>
+
+<span class="n">Subscriber</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s">'Subscriber'</span><span class="p">,</span> <span class="p">[</span><span class="s">'addr'</span><span class="p">,</span> <span class="s">'joined'</span><span class="p">,</span><span class="s">'hihih'</span><span class="p">])</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">Subscriber</span><span class="p">)</span>
+
+<span class="n">sub</span> <span class="o">=</span> <span class="n">Subscriber</span><span class="p">(</span><span class="s">"vuong"</span><span class="p">,</span> <span class="p">[</span><span class="s">'xuan'</span><span class="p">,</span> <span class="s">'phung'</span><span class="p">],</span><span class="s">'vuong'</span><span class="p">)</span>
+
+
+</code></pre></div></div>
+
+<p>Các thực thể được tạo ra từ class con đều hỗ trợ tất cả các phép toán cơ bản cuả tupple như indexing, unpacking etc.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">len</span><span class="p">(</span><span class="n">sub</span><span class="p">)</span> <span class="c1"># 3
+</span>
+<span class="n">first</span><span class="p">,</span> <span class="n">second</span><span class="p">,</span> <span class="n">last</span> <span class="o">=</span> <span class="n">sub</span> 
+</code></pre></div></div>
+
+<p>Một trong những trường hợp sử dụng chính của namedtuple là tách code của bạn ra khỏi vị trí thao tác các phần tử. Lấy ví dụ như sau, khi mà bạn nhận một list có kích thước lớn, và thao tác tác với list đó bằng cách sử dụng chỉ mục để truy cập dữ liệu. Tuy nhiên nếu cơ sở dữ liệu có thay đổi thêm huặc bớt số lượng các cột thì sao? code sẽ bị lỗi. Điều này sẽ</p>
+
+                    
+        </section>
+
+
+
+    </div>    
+
+</section>
+		</section>
+	</main></body>
+</html>

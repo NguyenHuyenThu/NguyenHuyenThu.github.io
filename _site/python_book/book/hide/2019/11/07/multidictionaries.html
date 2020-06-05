@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link href="https://fonts.googleapis.com/css?family=Merriweather:300|Raleway:400,700" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style_vuggg.css">
+<title>1.6 Mapping keys to multiple values in dictionary</title>
+<!-- Begin Jekyll SEO tag v2.1.0 -->
+<title>1.6 Mapping keys to multiple values in dictionary - vuggg</title>
+<meta property="og:title" content="1.6 Mapping keys to multiple values in dictionary" />
+<meta name="description" content="Problem" />
+<meta property="og:description" content="Problem" />
+<link rel="canonical" href="http://localhost:4000/python_book/book/hide/2019/11/07/multidictionaries.html" />
+<meta property="og:url" content="http://localhost:4000/python_book/book/hide/2019/11/07/multidictionaries.html" />
+<meta property="og:site_name" content="vuggg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-11-07T20:01:03+07:00" />
+<script type="application/ld+json">
+{"@context": "http://schema.org",
+"@type": "BlogPosting",
+"headline": "1.6 Mapping keys to multiple values in dictionary",
+"datePublished": "2019-11-07T20:01:03+07:00",
+"description": "Problem",
+"url": "http://localhost:4000/python_book/book/hide/2019/11/07/multidictionaries.html"}</script>
+<!-- End Jekyll SEO tag -->
+</head>
+<body>
+	<main class="container">
+		<section class="about">
+			
+			<a class="back-button" href="/">
+				<h4>Home</h4>
+			</a>
+            <p class="tagline"></p>
+            <p class="tagline">Python</p>
+            <p class="tagline">Cook Book</p>
+		</section>
+		<section class="content">
+			<section class="exercise-content">
+
+    <div class="exercise-heading">
+        1.6 Mapping keys to multiple values in dictionary
+    </div>
+
+    <div class="exercise-content">
+
+        
+        <section id="exercise-container">
+            
+                    <h4>Problem</h4>
+
+<p>Bạn muốn tạo một dictionary có thể map key với nhiều value.</p>
+
+<h4>Solution</h4>
+
+<p>Một dictionary là một mapping của một key và một value. Nếu bán muốn lưu nhiều value thì bạn cần lưu giữ value vào một container, ví dụ như list huặc set. Ví dụ như sau:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">d</span> <span class="o">=</span> <span class="p">{</span>
+       <span class="s">'a'</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span>
+        <span class="s">'b'</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+    <span class="p">}</span>
+
+<span class="n">e</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'a'</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<p>Sựa lựa chọn của khi nào sử dụng list huặc set còn tùy thuộc vào mục đích sử dụng. Sử dụng list nếu bạn cần giữ nguyên thứ tự của các phần tử. Sử dụng set nếu bạn muốn bỏ qua các phần tử lặp lại.</p>
+
+<p>Để cho tiện lợi khi khởi tạo thì bạn có thể sử dụng defaultdict trong module collections. Một tính năng của defaultdict là nó tự khởi tạo giá trị đầu tiên vì vậy bạn có thể tập trung vào việc thêm phần tử . Ví dụ như sau:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
+
+<span class="n">d</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+<span class="n">a</span><span class="p">[</span><span class="s">'a'</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">a</span><span class="p">[</span><span class="s">'2'</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+
+
+<span class="n">e</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">set</span><span class="p">)</span>
+
+<span class="n">e</span><span class="p">[</span><span class="s">'a'</span><span class="p">]</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">e</span><span class="p">[</span><span class="s">'a'</span><span class="p">]</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="c1">#
+</span><span class="k">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span> <span class="c1">#
+</span></code></pre></div></div>
+
+
+                    
+        </section>
+
+
+
+    </div>    
+
+</section>
+		</section>
+	</main></body>
+</html>

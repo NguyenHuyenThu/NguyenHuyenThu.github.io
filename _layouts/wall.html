@@ -1,0 +1,46 @@
+---
+layout: wall_default
+---
+{%- assign date_format = site.plainwhite.date_format | default: "%b %-d, %Y" -%}
+<section class="wall-content">
+    {%- for post in site.posts -%}
+        {%- if post.categories[0] == "status" -%}
+        <ul>
+            <li>
+                <div class="status">
+                    
+                    <div class="status-item status-title">
+                        <a class="title-item" href="{{ post.url | relative_url }}">
+                            {{ post.title | escape }}
+                        </a>
+                        <span class="title-item tag-status">
+                            {%- for tag in post.categories -%}
+                            #<span>{{tag}}</span>
+                            {%- endfor -%}
+                        </span>
+                        
+                        <span class="title-item time-status">
+                            {{ post.date | date: date_format }}
+                        </span>
+                    </div>
+                    <div class="status-item status-description">
+                        {%- if site.show_excerpts -%}
+                        {{ post.excerpt }}
+                        {%- endif -%}   
+                        <a href="{{ post.url | relative_url }}">xem thêm...</a> 
+                    </div>
+                    <div class="status-item status-state">
+                            {%- include icon/comment.svg -%} 88
+                    </div>
+                </div>
+            </li>
+        </ul>
+        {%- endif -%}
+    {%- endfor -%}
+    
+
+<script>
+</script>
+
+
+</section>

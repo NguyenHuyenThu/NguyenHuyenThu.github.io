@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link href="https://fonts.googleapis.com/css?family=Merriweather:300|Raleway:400,700" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style_vuggg.css">
+<title>1.9 Finding Commonalities in Two Dictionaries</title>
+<!-- Begin Jekyll SEO tag v2.1.0 -->
+<title>1.9 Finding Commonalities in Two Dictionaries - vuggg</title>
+<meta property="og:title" content="1.9 Finding Commonalities in Two Dictionaries" />
+<meta name="description" content="Problem" />
+<meta property="og:description" content="Problem" />
+<link rel="canonical" href="http://localhost:4000/python_book/book/hide/2019/11/08/1.9-finding-the-common.html" />
+<meta property="og:url" content="http://localhost:4000/python_book/book/hide/2019/11/08/1.9-finding-the-common.html" />
+<meta property="og:site_name" content="vuggg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-11-08T18:01:03+07:00" />
+<script type="application/ld+json">
+{"@context": "http://schema.org",
+"@type": "BlogPosting",
+"headline": "1.9 Finding Commonalities in Two Dictionaries",
+"datePublished": "2019-11-08T18:01:03+07:00",
+"description": "Problem",
+"url": "http://localhost:4000/python_book/book/hide/2019/11/08/1.9-finding-the-common.html"}</script>
+<!-- End Jekyll SEO tag -->
+</head>
+<body>
+	<main class="container">
+		<section class="about">
+			
+			<a class="back-button" href="/">
+				<h4>Home</h4>
+			</a>
+            <p class="tagline"></p>
+            <p class="tagline">Python</p>
+            <p class="tagline">Cook Book</p>
+		</section>
+		<section class="content">
+			<section class="exercise-content">
+
+    <div class="exercise-heading">
+        1.9 Finding Commonalities in Two Dictionaries
+    </div>
+
+    <div class="exercise-content">
+
+        
+        <section id="exercise-container">
+            
+                    <h4>Problem</h4>
+
+<p>Bạn có hai dictionary và muốn tìm ra điểm chung giữa chúng như là: cùng key, cùng value etc.</p>
+
+<h4>Solution</h4>
+
+<p>Xem xét hai dictionay sau:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'x'</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+    <span class="s">'y'</span><span class="p">:</span><span class="mi">2</span>
+<span class="p">}</span>
+
+<span class="n">b</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'z'</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span>
+    <span class="s">'x'</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
+    <span class="s">'t'</span><span class="p">:</span><span class="mi">1</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<p>Để tìm đặc điểm chung của hai dictionary, đơn giản chúng ta thực hiện hai phương thức huặc là keys(), items().</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># tìm kiếm tên thuộc tính mà hai dicitonary đều có
+</span>
+<span class="n">a</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="o">&amp;</span> <span class="n">b</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="c1"># {'x'}
+</span>
+<span class="c1"># Tìm kiếm key mà chỉ có ở a và không có ở b
+</span>
+<span class="n">a</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="o">-</span> <span class="n">b</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="c1"># {'y'}
+</span>
+<span class="c1"># tìm kiếm cặp key value mà có cả ở a và b
+</span>
+<span class="n">a</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="o">&amp;</span> <span class="n">b</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+
+</code></pre></div></div>
+
+<h4>Discustion</h4>
+
+<p>Dictionary là một mapping giữa một cặp key và value. Phương thức keys() trả về một keys-view object, trích xuất của các key trong dictionary.</p>
+
+<p>Một tính năng của keys view đó là nó hỗ trợ một số phép toán cơ bản trên tập hợp như hợp, giao, trừ. Do vậy nếu nếu bạn muốn thực thi các phép toán cơ bản trên tập hợp bạn chỉ cần sử dụng keys-view object mà không cần chuyển chúng sang tập hợp trước.</p>
+
+<p>Phương thức items() cũng tương tự như vậy nhưng nó là một keys-view bao gồm các tuple key-value.</p>
+
+
+                    
+        </section>
+
+
+
+    </div>    
+
+</section>
+		</section>
+	</main></body>
+</html>

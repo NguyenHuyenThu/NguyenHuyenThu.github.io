@@ -1,0 +1,3 @@
+---
+layout: react_test
+---

@@ -1,0 +1,41 @@
+---
+layout: default
+---
+
+{%- if page.title -%}
+<h1 class="page-heading">{{ page.title }}</h1>
+{%- endif -%}
+
+{{ content }}
+
+{%- if site.posts.size > 0 -%}
+<ul class="posts">
+  <li>
+    <h1 id="posts-label">posts</h1>
+  </li>
+
+  {%- for post in site.posts -%}
+    {% if post.categories[0] == "home" %}
+    <li>
+      {%- assign date_format = site.plainwhite.date_format | default: "%b %-d, %Y" -%}
+      <div class="post-item">
+        <div class="post-meta">
+            <ul class="post-categories">
+              {%- for tag in post.categories -%}
+              {%- if tag != post.categories[0] -%}
+              <li>{{ tag }}</li>
+              {%- endif -%}
+              {%- endfor -%}
+            </ul>
+            <div class="post-date"><i class="icon-calendar"></i>{{ post.date | date: date_format }}</div>
+          </div>
+          <a class="post-link" href="{{ post.url | relative_url }}">
+            <h2 class="post-title">{{ post.title | escape }}</h2>
+          </a>
+      </div>
+    </li>
+    {% endif %}
+  {%- endfor -%}
+</ul>
+
+{%- endif -%}

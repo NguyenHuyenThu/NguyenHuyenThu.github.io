@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link href="https://fonts.googleapis.com/css?family=Merriweather:300|Raleway:400,700" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style_vuggg.css">
+<title>1.16 Filter sequence element</title>
+<!-- Begin Jekyll SEO tag v2.1.0 -->
+<title>1.16 Filter sequence element - vuggg</title>
+<meta property="og:title" content="1.16 Filter sequence element" />
+<meta name="description" content="Problem" />
+<meta property="og:description" content="Problem" />
+<link rel="canonical" href="http://localhost:4000/python_book/book/2019/11/13/filter-sequence-element.html" />
+<meta property="og:url" content="http://localhost:4000/python_book/book/2019/11/13/filter-sequence-element.html" />
+<meta property="og:site_name" content="vuggg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-11-13T11:01:03+07:00" />
+<script type="application/ld+json">
+{"@context": "http://schema.org",
+"@type": "BlogPosting",
+"headline": "1.16 Filter sequence element",
+"datePublished": "2019-11-13T11:01:03+07:00",
+"description": "Problem",
+"url": "http://localhost:4000/python_book/book/2019/11/13/filter-sequence-element.html"}</script>
+<!-- End Jekyll SEO tag -->
+</head>
+<body>
+	<main class="container">
+		<section class="about">
+			
+			<a class="back-button" href="/">
+				<h4>Home</h4>
+			</a>
+            <p class="tagline"></p>
+            <p class="tagline">Python</p>
+            <p class="tagline">Cook Book</p>
+		</section>
+		<section class="content">
+			<section class="exercise-content">
+
+    <div class="exercise-heading">
+        1.16 Filter sequence element
+    </div>
+
+    <div class="exercise-content">
+
+        
+        <section id="exercise-container">
+            
+                    <h4>Problem</h4>
+
+<p>Bạn có dữ liệu bên trong một chuỗi dữ liệu, và cần trích xuất dữ liệu.</p>
+
+<h4>Solution</h4>
+
+<p>Cách đơn giản nhất để lọc dữ liệu là sử dụng danh danh sách toàn diện. Ví dụ như sau:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">myList</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">]</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="n">item</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">myList</span> <span class="k">if</span> <span class="n">item</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="c1"># [1, 2, 4, 3, 7]
+</span></code></pre></div></div>
+
+<p>Một nhược điểm của việc sử dụng danh sách toàn diện là nó có thể  tạo ra một kết quả lớn nếu dữ liệu gốc là lớn. Nếu đó là mối quan tâm, bạn có thể sử dụng biểu thức expression để tạo ra một iterator đã được lọc.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pos</span> <span class="o">=</span> <span class="p">(</span><span class="n">n</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">myList</span> <span class="k">if</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">pos</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Đôi khi, tiêu chuẩn lọc không hề đơn giản khi biểu diễn trong một danh sách toàn diện, huặc là một biểu thực generator. Ví dụ, giả sử bạn muốn lọc các tiến trình liên quan đến xử lý ngoại lệ, huặc một vài thứ khác có chi tiết phức tạp. Cho vấn đề này, chúng ta bỏ mã lọc vào hàm và sử dụng hàm filter được xấy dựng sẵn. Ví dụ như sau:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="s">'1'</span><span class="p">,</span> <span class="s">'2'</span><span class="p">,</span> <span class="s">'-3'</span><span class="p">,</span> <span class="s">'-'</span><span class="p">,</span> <span class="s">'4'</span><span class="p">,</span> <span class="s">'N/A'</span><span class="p">,</span> <span class="s">'5'</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">is_int</span><span class="p">(</span><span class="n">val</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">True</span>
+    <span class="k">except</span> <span class="nb">ValueError</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">False</span>
+    
+
+<span class="n">ivals</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span> <span class="nb">filter</span><span class="p">(</span><span class="n">is_int</span><span class="p">,</span> <span class="n">values</span><span class="p">)</span> <span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">ivals</span><span class="p">)</span> <span class="c1"># ['1', '2', '-3', '4', '5']
+</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">filter()</code> tạo ra một iterator, vậy nên bạn muốn tạo ra kết quả dưới dạng list thì phải sử dụng hàm khởi tạo <code class="highlighter-rouge">list()</code>.</p>
+
+<h4>Discussion</h4>
+
+<p>Danh sách toàn diện, huặc là biểu thức generator thường là những cách đơn giản và gọn nhẹ nhất để thực hiện lọc dữ liệu đơn giản.</p>
+
+<p>Ngoài ra một công cụ lọc dữ liệu đá chú ý nữa là itertools.compress(), nó nhận vào một iterable và một chuỗi thứ tự các Boolean. Nó sẽ trả về tất cả các phần tử tương ứng với phần tử trong chuỗi phần tử có giá trị là True. Công cụ này rất hữu ích trong việc lọc dữ liệu dựa trên một chuỗi các phần tử dữ liệu khác.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">compress</span>
+
+<span class="n">addresses</span> <span class="o">=</span> <span class="p">[</span>
+<span class="s">'5412 N CLARK'</span><span class="p">,</span>
+<span class="s">'5148 N CLARK'</span><span class="p">,</span>
+<span class="s">'5800 E 58TH'</span><span class="p">,</span>
+<span class="s">'2122 N CLARK'</span>
+<span class="s">'5645 N RAVENSWOOD'</span><span class="p">,</span>
+<span class="s">'1060 W ADDISON'</span><span class="p">,</span>
+<span class="s">'4801 N BROADWAY'</span><span class="p">,</span>
+<span class="s">'1039 W GRANVILLE'</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="n">counts</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+
+<span class="n">greater5</span> <span class="o">=</span> <span class="p">[</span><span class="n">n</span><span class="o">&gt;</span><span class="mi">5</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">counts</span><span class="p">]</span>
+
+<span class="n">res</span> <span class="o">=</span> <span class="n">compress</span><span class="p">(</span><span class="n">addresses</span><span class="p">,</span> <span class="n">greater5</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">res</span><span class="p">))</span>
+
+</code></pre></div></div>
+
+                    
+        </section>
+
+
+
+    </div>    
+
+</section>
+		</section>
+	</main></body>
+</html>

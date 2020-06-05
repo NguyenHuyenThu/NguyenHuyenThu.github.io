@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link href="https://fonts.googleapis.com/css?family=Merriweather:300|Raleway:400,700" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style_vuggg.css">
+<title>Csharp Checked</title>
+<!-- Begin Jekyll SEO tag v2.1.0 -->
+<title>Csharp Checked - vuggg</title>
+<meta property="og:title" content="Csharp Checked" />
+<meta name="description" content="Toán tử checked nói với runtime tạo ra một OverflowException khi mà một biểu thức hay một câu lệnh vượt ra khỏi giới hạn của kiểu. Chú ý rằng toán tử checked chỉ có tác dụng trên các biểu thức với ++, –, +, -, *, /. Nó không có tác dụng trên các kiểu float, double, và demical." />
+<meta property="og:description" content="Toán tử checked nói với runtime tạo ra một OverflowException khi mà một biểu thức hay một câu lệnh vượt ra khỏi giới hạn của kiểu. Chú ý rằng toán tử checked chỉ có tác dụng trên các biểu thức với ++, –, +, -, *, /. Nó không có tác dụng trên các kiểu float, double, và demical." />
+<link rel="canonical" href="http://localhost:4000/csharp_book/book/2020/01/06/checked-operator.html" />
+<meta property="og:url" content="http://localhost:4000/csharp_book/book/2020/01/06/checked-operator.html" />
+<meta property="og:site_name" content="vuggg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-01-06T10:01:03+07:00" />
+<script type="application/ld+json">
+{"@context": "http://schema.org",
+"@type": "BlogPosting",
+"headline": "Csharp Checked",
+"datePublished": "2020-01-06T10:01:03+07:00",
+"description": "Toán tử checked nói với runtime tạo ra một OverflowException khi mà một biểu thức hay một câu lệnh vượt ra khỏi giới hạn của kiểu. Chú ý rằng toán tử checked chỉ có tác dụng trên các biểu thức với ++, –, +, -, *, /. Nó không có tác dụng trên các kiểu float, double, và demical.",
+"url": "http://localhost:4000/csharp_book/book/2020/01/06/checked-operator.html"}</script>
+<!-- End Jekyll SEO tag -->
+</head>
+<body>
+	<main class="container">
+		<section class="about">
+			
+			<a class="back-button" href="/">
+				<h4>Home</h4>
+			</a>
+            <p class="tagline"></p>
+            <p class="tagline">C#</p>
+            <p class="tagline">Programing</p>
+		</section>
+		<section class="content">
+			<section class="exercise-content">
+
+    <div class="exercise-heading">
+        Csharp Checked
+    </div>
+
+    <div class="exercise-content">
+
+        
+        <section id="exercise-container">
+            
+                    <p>Toán tử <strong>checked</strong> nói với runtime tạo ra một <strong>OverflowException</strong> khi mà một biểu thức hay một câu lệnh vượt ra khỏi giới hạn của kiểu. Chú ý rằng toán tử <strong>checked</strong> chỉ có tác dụng trên các biểu thức với ++, –, +, -, *, /. Nó không có tác dụng trên các kiểu float, double, và demical.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">a</span> <span class="p">=</span> <span class="m">100000</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">b</span> <span class="p">=</span> <span class="m">100000</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="n">c</span> <span class="p">=</span> <span class="k">checked</span><span class="p">(</span><span class="n">a</span><span class="p">*</span><span class="n">b</span><span class="p">);</span> <span class="c1">// using with expression</span>
+
+<span class="k">checked</span><span class="p">{</span>
+    <span class="n">c</span> <span class="p">=</span> <span class="n">a</span> <span class="p">*</span> <span class="n">b</span><span class="p">;</span> <span class="c1">// using with statement</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+
+                    
+        </section>
+
+
+
+    </div>    
+
+</section>
+		</section>
+	</main></body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link href="https://fonts.googleapis.com/css?family=Merriweather:300|Raleway:400,700" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style_vuggg.css">
+<title>2.4 Matching and search for text patterns</title>
+<!-- Begin Jekyll SEO tag v2.1.0 -->
+<title>2.4 Matching and search for text patterns - vuggg</title>
+<meta property="og:title" content="2.4 Matching and search for text patterns" />
+<meta name="description" content="Problem" />
+<meta property="og:description" content="Problem" />
+<link rel="canonical" href="http://localhost:4000/python_book/book/hide/2019/11/20/matching-seatch-text-pattern.html" />
+<meta property="og:url" content="http://localhost:4000/python_book/book/hide/2019/11/20/matching-seatch-text-pattern.html" />
+<meta property="og:site_name" content="vuggg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-11-20T20:01:03+07:00" />
+<script type="application/ld+json">
+{"@context": "http://schema.org",
+"@type": "BlogPosting",
+"headline": "2.4 Matching and search for text patterns",
+"datePublished": "2019-11-20T20:01:03+07:00",
+"description": "Problem",
+"url": "http://localhost:4000/python_book/book/hide/2019/11/20/matching-seatch-text-pattern.html"}</script>
+<!-- End Jekyll SEO tag -->
+</head>
+<body>
+	<main class="container">
+		<section class="about">
+			
+			<a class="back-button" href="/">
+				<h4>Home</h4>
+			</a>
+            <p class="tagline"></p>
+            <p class="tagline">Python</p>
+            <p class="tagline">Cook Book</p>
+		</section>
+		<section class="content">
+			<section class="exercise-content">
+
+    <div class="exercise-heading">
+        2.4 Matching and search for text patterns
+    </div>
+
+    <div class="exercise-content">
+
+        
+        <section id="exercise-container">
+            
+                    <h4>Problem</h4>
+
+<p>Bạn muốn match huặc tìm kiếm text với một pattern xác định.</p>
+
+<h4>Solutions</h4>
+
+<p>Nếu đoạn text mà bạn đang cố gắng tìm kiếm là một đoạn văn đơn giản, bạn chỉ cần sử dụng hàm find(), huặc các hàm như endswith(), startswith().</p>
+
+<p>Với các các match phức tạp hơn, chúng ta sử dụng biểu thức chính quy. Để minh hoa cơ chế cơ bản cuả sử dụng biểu thưc chính quy, giả sử bạn muốn match một chuỗi dưới dạng ngày nhất định nào đó, ví dụ như là “11/11/2019”. Dưới đây là ví dụ cách mà bạn làm điều đó.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">re</span>
+
+<span class="n">text1</span> <span class="o">=</span> <span class="s">'11/11/2019'</span>
+<span class="n">text2</span> <span class="o">=</span> <span class="s">'Nov 11, 2019'</span>
+
+<span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s">r'\d+/\d+/\d+'</span><span class="p">,</span> <span class="n">text1</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"yes"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"no"</span><span class="p">)</span>
+
+</code></pre></div></div>
+
+<p>Nếu bạn dự định sẽ thực thi rất nhiều phép match sử dụng cùng một pattern thì để tăng tốc độ thực thi bạn nên precomplile pattern biểu thức chính quy sang pattern object trước. Dưới đây là ví dụ:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">re</span>
+<span class="n">datepattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="nb">compile</span><span class="p">(</span><span class="s">r'\d+/\d+/\d+'</span><span class="p">)</span>
+
+<span class="k">if</span><span class="p">(</span><span class="n">datepattern</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">text1</span><span class="p">)):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"yes"</span><span class="p">)</span>
+
+</code></pre></div></div>
+
+<p>Hàm match luôn cố  gắng tìm từ đầu của string, nếu bạn muốn tìm số lần xuất hiện của một đoạn text trong string thì bạn phải sử dụng hàm findall(). Dưới đây là ví dụ:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">text</span> <span class="o">=</span> <span class="s">'Today is 11/27/2012. PyCon starts 3/13/2013.'</span>
+
+<span class="n">res</span> <span class="o">=</span> <span class="n">datepattern</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="c1"># ['11/27/2012', '3/13/2013']
+</span></code></pre></div></div>
+
+<p>Khi chúng ta định nghĩa biểu thức chính quy. Nó thường được nhóm lại bằng các dấu nguặc đơn “()”. Ví dụ như sau:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">datepat</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="nb">compile</span><span class="p">(</span><span class="s">r'(\d+)/(\d+)/(\d+)'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Điều này khiến chúng ta xử lý kết quả tìm kiếm đơn giản hơn bởi kết quả có thể trích xuất ra.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">m</span> <span class="o">=</span> <span class="n">datepat</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s">'11/12/2019'</span><span class="p">)</span>
+
+<span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># 11/11/2019
+</span><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># 11
+</span><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># 12
+</span><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="c1"># 2019
+</span>
+</code></pre></div></div>
+
+<p>Với findall, hàm này sẽ trả về các kết quả dưới dạng list. Nếu bạn muốn kết quả trả về  duwois dạng iterator. bạn nên sử dụng hàm <code class="highlighter-rouge">finditer()</code>.</p>
+
+<p>```»&gt; for m in datepat.finditer(text):
+… print(m.groups())
+…
+(‘11’, ‘27’, ‘2012’)
+(‘3’, ‘13’, ‘2013’)</p>
+<blockquote>
+  <blockquote>
+    <blockquote>
+
+      <p>```</p>
+    </blockquote>
+  </blockquote>
+</blockquote>
+
+
+                    
+        </section>
+
+
+
+    </div>    
+
+</section>
+		</section>
+	</main></body>
+</html>

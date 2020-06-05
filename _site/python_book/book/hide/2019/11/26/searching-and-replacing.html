@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link href="https://fonts.googleapis.com/css?family=Merriweather:300|Raleway:400,700" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style_vuggg.css">
+<title>2.5 Searching and replacing text</title>
+<!-- Begin Jekyll SEO tag v2.1.0 -->
+<title>2.5 Searching and replacing text - vuggg</title>
+<meta property="og:title" content="2.5 Searching and replacing text" />
+<meta name="description" content="Problem" />
+<meta property="og:description" content="Problem" />
+<link rel="canonical" href="http://localhost:4000/python_book/book/hide/2019/11/26/searching-and-replacing.html" />
+<meta property="og:url" content="http://localhost:4000/python_book/book/hide/2019/11/26/searching-and-replacing.html" />
+<meta property="og:site_name" content="vuggg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-11-26T16:01:03+07:00" />
+<script type="application/ld+json">
+{"@context": "http://schema.org",
+"@type": "BlogPosting",
+"headline": "2.5 Searching and replacing text",
+"datePublished": "2019-11-26T16:01:03+07:00",
+"description": "Problem",
+"url": "http://localhost:4000/python_book/book/hide/2019/11/26/searching-and-replacing.html"}</script>
+<!-- End Jekyll SEO tag -->
+</head>
+<body>
+	<main class="container">
+		<section class="about">
+			
+			<a class="back-button" href="/">
+				<h4>Home</h4>
+			</a>
+            <p class="tagline"></p>
+            <p class="tagline">Python</p>
+            <p class="tagline">Cook Book</p>
+		</section>
+		<section class="content">
+			<section class="exercise-content">
+
+    <div class="exercise-heading">
+        2.5 Searching and replacing text
+    </div>
+
+    <div class="exercise-content">
+
+        
+        <section id="exercise-container">
+            
+                    <h4>Problem</h4>
+
+<p>Bạn muốn tìm kiếm và thay thế một text trong một string.</p>
+
+<h4>Solution</h4>
+
+<p>Với các pattern đơn giản thì chúng ta chỉ cần sử dụng hàm str.replace(). Ví dụ</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">text</span> <span class="o">=</span> <span class="s">'yeah, but no, but yeah, but no, but yeah'</span>
+
+<span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">'yeah'</span><span class="p">,</span><span class="s">'yep'</span><span class="p">)</span>
+
+</code></pre></div></div>
+
+<p>với các pattern phức tạp hơn chúng ta sử dụng hàm sub() trong module re. Để minh họa, bạn muốn viết lại form của date từ ‘11/27/2013’ sang ‘2013/11/27’. Thực hiện như sau:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">text</span> <span class="o">=</span> <span class="s">'Today is 11-27-2012. PyCon starts 3/13/2013.'</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s">r'(\d+)-(\d+)-(\d+)'</span><span class="p">,</span> <span class="s">r'\3-\1-\2'</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+
+</code></pre></div></div>
+
+
+                    
+        </section>
+
+
+
+    </div>    
+
+</section>
+		</section>
+	</main></body>
+</html>

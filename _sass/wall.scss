@@ -1,0 +1,412 @@
+@import 'ext/fonts';
+@import 'ext/normalize';
+@import 'syntax';
+
+$linkColor: #0A59B0;
+$mobileW: 768px;
+$smallMobileW: 480px;
+$bigScreenW: 1600px;
+$veryBigScreenW: 2000px;
+$leftWidth: 220px;
+$headingSize: 3.5em;
+
+*,*:before,*:after {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Raleway', sans-serif;
+	font-size: 16px;
+	line-height: 1.2em;
+	margin: 0;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	display: flex;
+    flex-direction: column;
+    background: rgb(233, 231, 231);
+}
+
+img, embed, object, video {
+	max-width: 100%;
+}
+
+a {
+	color: #000;
+	transition: color 0.3s;
+	&:hover {
+		color: $linkColor;
+    }
+}
+
+
+
+/// vugggg ///
+
+.section a:link{
+	text-decoration: none;
+}
+.post-item{
+	border-bottom:0.2px solid #E3E3E3;
+}
+
+//////////////
+
+h2 {
+	margin: 0.7em 0;
+}
+
+main {
+	margin: calc(#{$headingSize} + 3px) 60px 0px 0px;
+	display: flex;
+	height: 100%;
+	
+	
+
+	@media screen and (min-width: $bigScreenW) {
+		margin: 0 auto;
+		max-width: 1440px;	
+	}
+	@media screen and (max-width: 1280px) {
+		margin: calc(#{$headingSize} + 3px) 75px 0px 0px;	
+	}
+	@media screen and (max-width: 1024px){
+		margin: calc(#{$headingSize} + 3px) 25px 0px 0px;	
+	}
+
+	@media screen and (max-width: $mobileW) {
+		margin: calc(#{$headingSize} + 3px) 5px 0px 0px;
+		flex-direction: column;	
+	}
+	@media screen and (max-width: $smallMobileW) {
+		margin-top: $headingSize;	
+	}
+
+	.content {
+		
+		@media screen and (min-width: $mobileW + 1){
+			max-width: calc(100% - #{$leftWidth});
+			margin-left: calc(#{$leftWidth} - 20px);
+		}
+		
+		
+	}
+	.about {
+        background: rgb(255, 255, 255);
+		display: flex;
+		height: 100vh;
+		
+		padding-bottom: 15vh;
+		min-width: $leftWidth;
+		justify-content: center;
+		flex-direction: column;
+		align-items: center;
+
+		@media screen and (max-width: $mobileW) {
+			height: auto;	
+			padding: 10vh 0;
+			display: none;
+		}
+		@media screen and (min-width: $mobileW + 1) {
+			position: fixed;
+		}
+		
+		h2 {
+			font-size: 22px;
+			margin-top: 25px;
+			margin-bottom: 0;
+			color: #222222;
+			font-weight: normal;
+		}
+		.tagline {
+			font-size: 2em;
+			margin-top: 0.3em;
+			color: #aaa;
+		}
+		img {
+			max-width: 150px;
+		}
+		a:link{
+			text-decoration: none;
+        }
+        
+        .back-button{
+            background-color: #E9D9D9;
+            border-radius: 10px;
+            h4 {
+                padding:0em 0.5em;
+            }
+            position: fixed;
+            top: 1em;
+            left: 1em;
+		}
+		.avatar{
+			border-radius: 50%;
+			border: 5px bold black;
+		}
+	}
+}
+.social {
+	list-style-type: none;
+	padding: 0;
+	margin-top: 0.4em;
+	li {
+		float: left;
+		i {
+			font-size: 34px;
+		}
+    }
+    display: flex;
+    justify-content: space-around;
+    .item-{
+        align-self: center;
+    }
+}
+
+.post-categories {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	li {
+		font-size: 12px;
+		float: left;
+		background-color: rgb(211, 200, 200);
+		padding: 5px 10px;
+		border-radius: 5px;
+		@media screen and (max-width: $mobileW){
+			margin-top: 5px;
+		}
+		margin-right: 10px;
+	}
+}
+.post-date {
+	margin-right: 10px;
+	color: #555;
+}
+.post-meta {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+.post-link {
+	text-decoration: none;
+}
+
+.post-title {
+	line-height: 1.2em;
+	font-size: 20px;
+}
+.posts, .post-container {
+	list-style-type: none;
+	margin: 25px 25px;
+	@media screen and (max-width: $smallMobileW){
+		margin-left: 10px;
+		margin-right: 10px;
+	}
+	@media screen and (max-width: $mobileW){
+		padding: 0 !important;	
+		margin-top: 0;
+	}
+}
+.post-container {
+	padding-left: 40px;
+}
+.post {
+	font-family: 'Merriweather', sans-serif;
+	font-weight: 300;
+	color: #222;
+	line-height: 1.9em;
+	a {
+		color: $linkColor;
+		text-decoration: none;
+		transition: border-bottom 0.4s;
+		&:hover {
+			border-bottom: 0.5px solid $linkColor;
+		}
+	}
+}
+
+#posts-label {
+	border-bottom: 1px solid #eee;
+	font-size: 15px;
+	color: rgb(87, 82, 86);
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+	padding-bottom: 10px;
+	font-weight: normal;
+}
+
+
+
+.exercise-heading{
+    width: 100%;
+    font-size: 1.5em;
+    padding: 1em 0.5em;
+    background-color: #F6F5F5;
+    opacity: 85%;
+    border-radius: 10px;
+
+
+}
+
+
+.exercise-content, .wall-content{
+    padding-top: 0em;
+	background-color: rgb(255, 255, 255);
+	position: relative;	
+	left: 30px;
+	top: calc(#{$headingSize} - 78px);
+
+	@media screen and (max-width: $mobileW){
+		left: 0px;
+		top: calc(#{$headingSize} - 85px);
+		
+	}
+
+	
+	
+    a:link{
+        text-decoration: none;
+    }
+
+    ul{
+        list-style: none;
+        font-size: 1.5em;
+    }
+    
+
+
+    .courses-item{
+        width: 100%;
+        font-size: 1em;
+        padding: 0.5em 0.5em;
+        background-color: rgb(245, 234, 234);
+        opacity: 45%;
+		border-radius: 10px;
+		
+    }
+
+    li{
+        padding-top: 0em;
+    }
+
+	.status{
+		width: 100%;
+        padding: 0.4em 0.4em;
+        background-color: rgb(250, 250, 250);
+		border-radius: 6px;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start; 
+		position: relative;
+		top:10px;
+		right: 20px;  
+		.status-item{
+			padding: 0.15em 0em;
+		}
+		.status-title{
+			flex-grow: 1;
+			font-size: 0.9em;
+			display: flex;
+			flex-direction: row;
+			justify-content: flex-start;
+			flex-wrap: wrap;
+			.title-item{
+				padding-right: 1em;
+				color: rgb(63, 60, 60);
+				font-weight: bold;
+			}
+			.title-status{
+
+			}
+			.tag-status{
+				font-size: 0.8em;
+				color: rgb(118, 192, 197);
+				span{
+					padding-right: 0.2em;
+				}
+				display: flex;
+				flex-wrap: wrap;
+            }
+            .tag-status:hover{
+                font-weight: bold;
+                color: rgb(70, 206, 216);
+                cursor: pointer;
+            }
+			.time-status{
+				font-size: 0.8em;
+                color: rgb(248, 160, 160);
+                
+			}
+		}
+		.status-description{
+			flex-grow: 2;
+			font-size: 0.6em;
+			width: 100%;
+            color: rgb(90, 86, 86);
+            a{
+                font-style:italic;
+            }
+		}
+		.status-state{
+			flex-grow: 1;
+			font-size: 0.6em;
+			color: rgb(150, 150, 155);
+		}
+	}
+    
+
+}
+
+
+#bai-lam{
+    table {
+        border: 2px bold red;
+    }
+}
+
+.exercise-item{
+	background-color: rgb(250, 242, 248);
+	padding: 0.5em;
+	border-radius: 10px;
+	margin-bottom: 0.5em;
+	
+}
+
+header{
+	position: fixed;
+    background: rgb(255, 255, 255);
+    border-bottom: 1px solid rgb(229, 209, 209);
+	width: 100%;
+    height: 3.5em;
+    z-index: 1;
+	nav{
+		display: flex;
+        justify-content: space-between;
+        
+        a{
+            align-self: center;
+            padding-left: 20px;
+        }
+        a:link{
+            text-decoration: none;
+        }
+        .user-info{
+            display: flex;
+            padding-right: 20px;
+            .avatar{
+                margin:5px;
+                border-radius: 50%;
+                width: 2.5em;
+                height: 2.5em;
+                align-self: center;
+            }
+            justify-content: space-around;
+            span{
+                align-self: center;
+            }
+            
+        }
+	}
+	
+
+}

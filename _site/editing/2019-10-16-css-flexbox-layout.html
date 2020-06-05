@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link href="https://fonts.googleapis.com/css?family=Merriweather:300|Raleway:400,700" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<title>Css Flexbox</title>
+<!-- Begin Jekyll SEO tag v2.1.0 -->
+<title>Css Flexbox - vuggg</title>
+<meta property="og:title" content="Css Flexbox" />
+<meta name="description" content="Blog Vuggg." />
+<meta property="og:description" content="Blog Vuggg." />
+<link rel="canonical" href="http://localhost:4000/editing/2019-10-16-css-flexbox-layout.html" />
+<meta property="og:url" content="http://localhost:4000/editing/2019-10-16-css-flexbox-layout.html" />
+<meta property="og:site_name" content="vuggg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-10-16T22:33:36+07:00" />
+<script type="application/ld+json">
+{"@context": "http://schema.org",
+"@type": "BlogPosting",
+"headline": "Css Flexbox",
+"datePublished": "2019-10-16T22:33:36+07:00",
+"description": "Blog Vuggg.",
+"url": "http://localhost:4000/editing/2019-10-16-css-flexbox-layout.html"}</script>
+<!-- End Jekyll SEO tag -->
+</head>
+<body>
+	<main class="container">
+		<section class="about">
+			<a href="/">
+				<img src="/assets/phung.jpg" alt="Vuong Xuan">
+				<h2>Vuong Xuan</h2>
+			</a>
+			<p class="tagline">Developer</p>
+			<ul class="social">
+				<a class="item-social" href="https://github.com/vuggg"><li><i class="icon-github-circled"></i></li></a>
+				<a class="item-social" href="https://facebook.com/pxv1702"><li><i><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg></i></li></a>
+			</ul>
+			
+			<div class="break-line"></div>
+
+			<section class="link-resource">
+				<a class="link-resource item" href="/courses.html">
+					Courses studied
+				</a>
+				
+				<a class="link-resource item" href="/xam.html">
+					Xam'
+				</a>
+				
+			</section>
+			<p>&copy; 2019</p>
+		</section>
+		<section class="content">
+			<div class="post-container">
+  <a class="post-link" href="/editing/2019-10-16-css-flexbox-layout.html">
+    <h2 class="post-title">Css Flexbox</h2>
+  </a>
+  <div class="post-meta">
+    <ul class="post-categories"><li>css</li></ul>
+    <div class="post-date"><i class="icon-calendar"></i>16-10-2019</div>
+  </div>
+  <div class="post">
+    <h4>Background</h4>
+
+<p>Flexbox Layout module được tạo ra nhằm mục đích cung cấp một cách hiệu quả trong việc lay out, căn chỉnh, phân phối không gian giữa các phần tử bên trong container, ngay cả khi kích thước của chúng là chưa xác định (flex).</p>
+
+<p>Ý tưởng chính của Flexbox layout là cung cấp cho container khả năng thay đổi chiều cao, chiều rộng của các phần tử trong nó để lấp đầy khoảng trống một cách phù hợp nhất với hầu hết các kích thước thiết bị hiện thị. Một flex container sẽ mở rộng phần tử của nó để lấp đầy không gian trống và co phần tử để tránh bị overflow.</p>
+
+<p>Một điều quan trọng, Flexbox layout là đa hướng, trái ngược với các layout thông thường (Block theo chiều dọc, Inline theo chiều ngang).</p>
+
+<h4>Cơ bản và thuật ngữ</h4>
+
+<p>Nếu các layout thông thường dựa trên flow direction là block và inline, flex layout dựa trên “flex-direction”. Hình bên dưới sẽ giải thích điều này:</p>
+
+<p><img src="https://css-tricks.com/wp-content/uploads/2018/11/00-basic-terminology.svg" alt="imgage" /></p>
+
+<p>Các item sẽ huặc được đặt theo main axis (từ main start đến main end) huặc là chiều dọc (từ cross-start đến cross-end).</p>
+
+<ul>
+  <li>
+    <p><strong>main axis</strong>: Trục chính của Flex direction là trục cơ sở, nơi là các item được đặt vào. Nó không nhất thiết là trục lằm ngang, mà nó phụ thuộc vào giá trị của thuộc tính <code class="highlighter-rouge">flex-direction</code>.</p>
+  </li>
+  <li>
+    <p><strong>main-size:</strong> Là chiều rộng huặc chiều dài của các phần tử, bất cứ cái nào mà lằm trong trục chính thì đều là kích thước của main-size.</p>
+  </li>
+  <li>
+    <p><strong>cross-size:</strong> Là kích thước chiều rộng huặc chiều cao của các item, bất cứ cái nào lằm bên trong kích thước của trục vuông góc với trục chính thì đều là kích thước của cross size.</p>
+  </li>
+</ul>
+
+<p><img src="https://css-tricks.com/wp-content/uploads/2018/10/01-container.svg" alt="container" /></p>
+
+<h5>Thuộc tính của container</h5>
+
+<ul>
+  <li><strong>display:</strong> Đây là thuộc tính định nghĩa một flexbox.
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  .container {
+      display: flex; /* or inline-flex */
+  }
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p><strong>flex-direction:</strong> Thuộc tính khởi tạo trục chính của flexbox. Flexbox là một khái niệm layout đơn hướng. Các item được đặt dọc theo hàng hang huặc hàng dọc.</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  .container {
+      flex-direction: row | row-reverse | column | column-reverse;
+  }
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p><strong>flex-wrap:</strong></p>
+
+    <p><img src="https://css-tricks.com/wp-content/uploads/2018/10/flex-wrap.svg" alt="flex-wrap" /></p>
+
+    <p>Ở chế độ mặc định thì tất cả các flex item sẽ cố gắng được đặt trong một hàng. Bạn có thể thay đổi, cho phép các phần tử được bọc lại khi cần thiết.</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  .container{
+      flex-wrap: nowrap | wrap | wrap-reverse;
+  }
+</code></pre></div>    </div>
+
+    <ul>
+      <li><strong>nowrap</strong>: ở chế độ mặc định thì các phần tử sẽ được đặt trên một hàng.</li>
+      <li>
+        <p><strong>wrap:</strong> Các flex item sẽ được bọc lại vào nhiều hàng, từ trên xuống dưới.</p>
+      </li>
+      <li><strong>wrap-reverse</strong>: Các flex item sẽ được bọc lại vào nhiều hàng, và từ dưới lên trên.</li>
+    </ul>
+
+    <p><img src="https://i.imgur.com/AFiolNb.png" alt="wrap-demo" /></p>
+
+    <p><em>Hình trên: đỏ là nowrap, vàng là wrap.</em></p>
+  </li>
+  <li>
+    <p><strong>flex-flow:</strong> Nó là một thuộc tính rút gọn, kết hợp của thuộc tính <code class="highlighter-rouge">flex-direction</code>và <code class="highlighter-rouge">flex-wrap</code>.</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  div {
+      display: flex;
+      flex-flow: row-reverse wrap;
+  }
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p><strong>justify-content:</strong></p>
+
+    <p><img src="https://css-tricks.com/wp-content/uploads/2018/10/justify-content.svg" alt="justify-content" /></p>
+
+    <p>Thuộc tính định nghĩa sự căn chỉnh của các flex item theo trục chính. Nó giúp phân phối không gian trống. Chúng cũng cố găng quản lý sự căn chỉnh của các item khi mà chúng tràn ra khỏi dòng.</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  .container {
+      justify-content: flex-start | flex-end | 
+      center |   space-between | space-around | space-evenly | start |  
+       end | left | right 
+      ... + safe | unsafe;
+  }
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p><strong>align-items:</strong></p>
+
+    <p><img src="https://css-tricks.com/wp-content/uploads/2018/10/align-items.svg" alt="align-items" /></p>
+
+    <p>Thuộc tính này định nghĩa các mà các flex item được đặt trên trục cross-axis (trục vuông góc với trục chính).</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  .container {
+        align-items: stretch | flex-start | flex-end | 
+        center |       baseline | first baseline |
+         last baseline | start | end    
+          | self-start | self-end +
+           ... safe | unsafe;
+  }
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p><strong>align-content</strong>:</p>
+
+    <p><img src="https://css-tricks.com/wp-content/uploads/2018/10/align-content.svg" alt="img" /></p>
+
+    <p>Thuộc tính này căn chỉnh dòng của flex container khi mà có không gian trống trên trục cross-axis. Tương tự như cách mà <code class="highlighter-rouge">justify-content</code> căn chỉnh các item trên trục chính main-axis, ở đây thay vì căn chỉnh item thì nó căn chỉnh dòng item</p>
+  </li>
+</ul>
+
+<h5>Thuộc tính của Items</h5>
+
+<ul>
+  <li>
+    <p><strong>order:</strong> 
+  <img src="https://css-tricks.com/wp-content/uploads/2018/10/order.svg" alt="order" />
+Ở chế độ mặc định thì các item được xuất hiện theo thứ tự nó xuất hiện trên cây dom. Thuộc tính này quản lý thứ tự xuất hiện của item trên flex container.</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  item {
+      order: &lt;integer&gt;; /* default is 0 */
+  }
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p><strong>flex-grow:</strong></p>
+
+    <p><img src="https://css-tricks.com/wp-content/uploads/2018/10/flex-grow.svg" alt="flex-grow" /></p>
+
+    <p>Thuộc tính này định nghĩa khả năng thay đổi kích thước của một flex-item nếu cần thiết. Nó chấp nhận một giá trị dựa trên một tỉ lệ. Nó quy định khoảng không gian mà item có thể chiếm bên trong container. Nếu tất các các item được set flex-grow là 1 thì không gian sẽ được phân phối đều.</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  .item {
+      flex-grow: &lt;number&gt;; /* default 0 */
+  }
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">flex-shrink:</code>  Thuộc tính quy định khả năng co lại của item nếu cần thiết.</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  .item {
+  flex-shrink: &lt;number&gt;; /* default 1 */
+  }
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p><strong>flex-basis:</strong> Thuộc tính này định nghĩa kích thước mặc định của một phần tử trước khi không gian còn lại được phân phối.</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  .item {
+  flex-basis: &lt;length&gt; | auto; /* default auto */
+  }
+</code></pre></div>    </div>
+    <p>Từ khóa <code class="highlighter-rouge">auto</code> chỉ ra rằng “hãy nhìn vào kích thước chiều rộng huặc chiều dài của tôi”. Nếu được set là 0 thì kích thước xung quanh nội dung không được tính. Nếu được set auto thì không gian mở rộng sẽ được phân phối dựa trên giá trị của flex-grow.</p>
+  </li>
+  <li>
+    <p><strong>flex</strong>: đây là cú pháp rút gọn của ba thuốc tính: <code class="highlighter-rouge">flex-grow</code>, <code class="highlighter-rouge">flex-shrink</code> và <code class="highlighter-rouge">flex-basis</code>. Thuộc tính hai và ba là tùy chọn, ở chế độ mặc định giá trị sẽ là: 0 1 auto.</p>
+
+    <p>Thuộc tính này được khuyến nghị sử dụng hơn là việc set từ giá trị cho từ thuộc tính đơn lẻ.</p>
+  </li>
+  <li>
+    <p><strong>align-self:</strong> Thuộc tính này cho phép căn chỉnh một item xác định. Sự căn chỉnh cũng tương tự như <code class="highlighter-rouge">align-items</code>. Nó căn chỉnh item dựa vào trục cross axis.</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  .item {
+  align-self: auto | flex-start | flex-end | center | baseline | stretch;
+  }
+</code></pre></div>    </div>
+
+    <p><img src="https://css-tricks.com/wp-content/uploads/2018/10/align-self.svg" alt="align-self" /></p>
+  </li>
+</ul>
+
+<p>Tham khảo: <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">The complete Flexbox</a></p>
+
+  </div>
+		</section>
+	</main></body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link href="https://fonts.googleapis.com/css?family=Merriweather:300|Raleway:400,700" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style_vuggg.css">
+<title>1.10 Remove duplicates from sequence while maintaining order</title>
+<!-- Begin Jekyll SEO tag v2.1.0 -->
+<title>1.10 Remove duplicates from sequence while maintaining order - vuggg</title>
+<meta property="og:title" content="1.10 Remove duplicates from sequence while maintaining order" />
+<meta name="description" content="Problem" />
+<meta property="og:description" content="Problem" />
+<link rel="canonical" href="http://localhost:4000/python_book/book/hide/2019/11/10/remove-duplicate-maintaining-oder.html" />
+<meta property="og:url" content="http://localhost:4000/python_book/book/hide/2019/11/10/remove-duplicate-maintaining-oder.html" />
+<meta property="og:site_name" content="vuggg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-11-10T09:01:03+07:00" />
+<script type="application/ld+json">
+{"@context": "http://schema.org",
+"@type": "BlogPosting",
+"headline": "1.10 Remove duplicates from sequence while maintaining order",
+"datePublished": "2019-11-10T09:01:03+07:00",
+"description": "Problem",
+"url": "http://localhost:4000/python_book/book/hide/2019/11/10/remove-duplicate-maintaining-oder.html"}</script>
+<!-- End Jekyll SEO tag -->
+</head>
+<body>
+	<main class="container">
+		<section class="about">
+			
+			<a class="back-button" href="/">
+				<h4>Home</h4>
+			</a>
+            <p class="tagline"></p>
+            <p class="tagline">Python</p>
+            <p class="tagline">Cook Book</p>
+		</section>
+		<section class="content">
+			<section class="exercise-content">
+
+    <div class="exercise-heading">
+        1.10 Remove duplicates from sequence while maintaining order
+    </div>
+
+    <div class="exercise-content">
+
+        
+        <section id="exercise-container">
+            
+                    <h4>Problem</h4>
+
+<p>Bạn muốn bỏ qua các phần tử lặp lại trong một chuỗi các phần tử nhưng vẫn giữ được thứ tự trong chuỗi.</p>
+
+<h4>Solution</h4>
+
+<p>Nếu các phần tử trong chuỗi có thể hash được thì giải pháp đơn giản cho vấn đề này là sử dụng set và generator. Ví dụ như sau:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">dedupe</span><span class="p">(</span><span class="n">items</span><span class="p">):</span>
+    <span class="n">seen</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">item</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">seen</span><span class="p">:</span>
+            <span class="k">yield</span> <span class="n">item</span>
+            <span class="n">seen</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+
+<span class="n">ar</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
+
+<span class="n">first</span> <span class="o">=</span> <span class="n">dedupe</span><span class="p">(</span><span class="n">ar</span><span class="p">)</span>
+
+
+<span class="k">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">first</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p>Giải pháp phía trên chỉ hoạt động khi các phần tử trong chuỗi là hashable. Nếu bạn thực hiện phương pháp trên với các chuỗi phần tử không thể hashable như là dictionary bạn cần phải có một vài thay đổi nhỏ như sau:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">dedupe</span><span class="p">(</span><span class="n">items</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="n">seen</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+        <span class="n">val</span> <span class="o">=</span> <span class="n">item</span> <span class="k">if</span> <span class="n">key</span> <span class="ow">is</span> <span class="bp">None</span> <span class="k">else</span> <span class="n">key</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">val</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">seen</span>
+            <span class="k">yield</span> <span class="n">item</span>
+            <span class="n">seen</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+
+</code></pre></div></div>
+
+<p>Ở đây, key là tham số mà ta chỉ định hàm, hàm đó chuyển đổi chuỗi các phần tử sang hashable, để cho mục đích phát hiện các phần tử lặp lại. Dưới đây là cách mà hàm dedupe hoạt động:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="p">[</span> <span class="p">{</span><span class="s">'x'</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s">'y'</span><span class="p">:</span><span class="mi">2</span><span class="p">},</span> <span class="p">{</span><span class="s">'x'</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s">'y'</span><span class="p">:</span><span class="mi">3</span><span class="p">},</span> <span class="p">{</span><span class="s">'x'</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s">'y'</span><span class="p">:</span><span class="mi">2</span><span class="p">},</span> <span class="p">{</span><span class="s">'x'</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="s">'y'</span><span class="p">:</span><span class="mi">4</span><span class="p">}]</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">dedupe</span><span class="p">(</span> <span class="n">a</span><span class="p">,</span> <span class="n">key</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">d</span><span class="p">:</span> <span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s">'x'</span><span class="p">],</span> <span class="n">d</span><span class="p">[</span><span class="s">'y'</span><span class="p">])</span> <span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">result</span><span class="p">))</span>
+</code></pre></div></div>
+
+<h4>Discustion</h4>
+
+<p>Nếu đơn giản bạn chỉ muốn xóa các phần tử lặp lại, một cách đơn giản hơn đó là sử dung set.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+<span class="nb">set</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">9</span><span class="p">}</span>
+
+</code></pre></div></div>
+
+<p>Tuy nhiên cách này thì không giữ được thứ tự các phần tử trong chuỗi các phần tử.</p>
+
+                    
+        </section>
+
+
+
+    </div>    
+
+</section>
+		</section>
+	</main></body>
+</html>

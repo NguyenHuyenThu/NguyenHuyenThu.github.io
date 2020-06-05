@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link href="https://fonts.googleapis.com/css?family=Merriweather:300|Raleway:400,700" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style_vuggg.css">
+<title>1.14 Sorting object without native comparision support</title>
+<!-- Begin Jekyll SEO tag v2.1.0 -->
+<title>1.14 Sorting object without native comparision support - vuggg</title>
+<meta property="og:title" content="1.14 Sorting object without native comparision support" />
+<meta name="description" content="Problem" />
+<meta property="og:description" content="Problem" />
+<link rel="canonical" href="http://localhost:4000/python_book/book/2019/11/11/sorting-object-without-native-compare.html" />
+<meta property="og:url" content="http://localhost:4000/python_book/book/2019/11/11/sorting-object-without-native-compare.html" />
+<meta property="og:site_name" content="vuggg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-11-11T21:01:03+07:00" />
+<script type="application/ld+json">
+{"@context": "http://schema.org",
+"@type": "BlogPosting",
+"headline": "1.14 Sorting object without native comparision support",
+"datePublished": "2019-11-11T21:01:03+07:00",
+"description": "Problem",
+"url": "http://localhost:4000/python_book/book/2019/11/11/sorting-object-without-native-compare.html"}</script>
+<!-- End Jekyll SEO tag -->
+</head>
+<body>
+	<main class="container">
+		<section class="about">
+			
+			<a class="back-button" href="/">
+				<h4>Home</h4>
+			</a>
+            <p class="tagline"></p>
+            <p class="tagline">Python</p>
+            <p class="tagline">Cook Book</p>
+		</section>
+		<section class="content">
+			<section class="exercise-content">
+
+    <div class="exercise-heading">
+        1.14 Sorting object without native comparision support
+    </div>
+
+    <div class="exercise-content">
+
+        
+        <section id="exercise-container">
+            
+                    <h4>Problem</h4>
+
+<p>Bạn muốn sắp xếp các đối tượng của cùng một class, nhưng nó hỗ trợ phép toán so sánh.</p>
+
+<h4>Solution</h4>
+
+<p>Hàm sorted nhận vào tham số  thông qua từ khóa <code class="highlighter-rouge">key</code>, tham số nhận vào một callable, callable này trả về một vài giá trị trong đối tượng mà ta sử dụng để so sánh. Ví dụ bạn có một chuỗi các thực thể User, bạn muốn sắp xếp các user theo thuộc tính id, để làm điều đó bạn phải cung cấp một callable, nó nhận vào một User mà trả về gía trị của thuộc tính id. Ví dụ như sau:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">operator</span> <span class="kn">import</span> <span class="n">attrgetter</span>
+
+<span class="k">class</span> <span class="nc">User</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_id</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">user_id</span> <span class="o">=</span> <span class="n">user_id</span>
+    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s">"User({})"</span><span class="o">.</span><span class="nb">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">user_id</span><span class="p">)</span>
+
+<span class="n">users</span> <span class="o">=</span> <span class="p">[</span><span class="n">User</span><span class="p">(</span><span class="mi">23</span><span class="p">),</span> <span class="n">User</span><span class="p">(</span><span class="mi">11</span><span class="p">),</span> <span class="n">User</span><span class="p">(</span><span class="mi">22</span><span class="p">)]</span>
+
+<span class="n">sorted_users</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">users</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">attrgetter</span><span class="p">(</span><span class="s">'user_id'</span><span class="p">))</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">sorted_users</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h4>Discustion</h4>
+
+<p>Lựa chọn khi nào sử dụng attrgetter hay là lambda thì còn tùy vào sở thích của mỗi người. Tuy nhiên attrgetter thường cho một tốc độ nhanh hơn và có thể sử dụng nhiều thuộc tính để so sánh. Điều này tương đương với việc sử dụng itemgetter cho dictionary. Và ta cũng có thể sử dụng kỹ thuật này cho các hàm tương tự như min max như sau:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">min_user</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">users</span><span class="p">,</span> <span class="n">key</span> <span class="o">=</span> <span class="n">attrgetter</span><span class="p">(</span><span class="s">'user_id'</span><span class="p">))</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">min_user</span><span class="p">)</span>
+</code></pre></div></div>
+
+
+                    
+        </section>
+
+
+
+    </div>    
+
+</section>
+		</section>
+	</main></body>
+</html>

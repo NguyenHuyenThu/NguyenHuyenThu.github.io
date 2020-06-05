@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link href="https://fonts.googleapis.com/css?family=Merriweather:300|Raleway:400,700" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style_vuggg.css">
+<title>Java design pattern - Singleton</title>
+<!-- Begin Jekyll SEO tag v2.1.0 -->
+<title>Java design pattern - Singleton - vuggg</title>
+<meta property="og:title" content="Java design pattern - Singleton" />
+<meta name="description" content="Mục đích" />
+<meta property="og:description" content="Mục đích" />
+<link rel="canonical" href="http://localhost:4000/design_pattern/book/2020/01/06/singleton.html" />
+<meta property="og:url" content="http://localhost:4000/design_pattern/book/2020/01/06/singleton.html" />
+<meta property="og:site_name" content="vuggg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-01-06T12:01:03+07:00" />
+<script type="application/ld+json">
+{"@context": "http://schema.org",
+"@type": "BlogPosting",
+"headline": "Java design pattern - Singleton",
+"datePublished": "2020-01-06T12:01:03+07:00",
+"description": "Mục đích",
+"url": "http://localhost:4000/design_pattern/book/2020/01/06/singleton.html"}</script>
+<!-- End Jekyll SEO tag -->
+</head>
+<body>
+	<main class="container">
+		<section class="about">
+			
+			<a class="back-button" href="/">
+				<h4>Home</h4>
+			</a>
+            <p class="tagline"></p>
+            <p class="tagline">Design Pattern</p>
+            <p class="tagline">Java</p>
+		</section>
+		<section class="content">
+			<section class="exercise-content">
+
+    <div class="exercise-heading">
+        Java design pattern - Singleton
+    </div>
+
+    <div class="exercise-content">
+
+        
+        <section id="exercise-container">
+            
+                    <h4>Mục đích</h4>
+
+<p>Đảm bảo một class chỉ có một thực thể, cung cấp một điểm truy cập toàn cục cho nó.</p>
+
+<h4>Giải thích</h4>
+
+<p>Trong kỹ nghệ phần mềm, singleton design pattern giới hạn số lược thực thể của class chỉ còn một. Điều này hữu ích khi mà chỉ cần một đối tượng phối hợp hoạt đông trên toàn hệ thống.</p>
+
+<h4>Ví dụ bằng ngôn ngữ lập trình</h4>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="nc">EnumEmployeeTitle</span><span class="o">{</span>
+    <span class="no">ACCOUNTANT</span><span class="o">;</span>
+<span class="o">}</span>
+
+<span class="kt">var</span> <span class="n">t1</span> <span class="o">=</span> <span class="nc">EnumEmployeeTitle</span><span class="o">.</span><span class="na">ACCOUNTANT</span><span class="o">;</span>
+<span class="kt">var</span> <span class="n">t2</span> <span class="o">=</span> <span class="nc">EnumEmployeeTitle</span><span class="o">.</span><span class="na">ACCOUNTANT</span><span class="o">;</span>
+
+<span class="n">assertEquals</span><span class="o">(</span><span class="n">t1</span><span class="o">,</span> <span class="n">t2</span><span class="o">)</span>  <span class="c1">// true</span>
+
+</code></pre></div></div>
+
+<h4>Lược đồ</h4>
+
+<p><img src="https://java-design-patterns.com/patterns/singleton/etc/singleton.urm.png" alt="img" /></p>
+
+<h4>Ứng dụng</h4>
+
+<p>Sử dụng singleton pattern khi:</p>
+
+<ul>
+  <li>Có chính xác một thực thể của class, và được truy cập thông qua điểm truy cập toàn cục</li>
+  <li>Có duy nhất một thực thể</li>
+</ul>
+
+<h4>Trường hợp sử dụng phổ biến</h4>
+
+<ul>
+  <li>Logging class</li>
+  <li>Quản lý kết nối cơ sở dữ liệu</li>
+  <li>File mamager</li>
+</ul>
+
+
+                    
+        </section>
+
+
+
+    </div>    
+
+</section>
+		</section>
+	</main></body>
+</html>
